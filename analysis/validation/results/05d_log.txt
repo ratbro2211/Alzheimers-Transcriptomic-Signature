@@ -1,0 +1,28 @@
+[PASS] C1   Gene-symbol matching across platforms              13690 genes in all three; matched Microarray 69%, RNA-seq 77%, SEA-AD 45%  unmatched genes are mostly platform-specific (lncRNAs, unannotated probes)
+[PASS] C2   Overlap above chance: Microarray vs RNA-seq        102 shared vs 30.1 expected (3.4x), hypergeometric p = 1.4e-28  
+[PASS] C3   Direction agreement vs coin-flip: Microarray vs RNA-seq 101/102 (99%), binomial p = 4.1e-29  
+[PASS] C4   Correlation robust (bootstrap CI, Spearman): Microarray vs RNA-seq r = 0.40 [95% CI 0.38-0.42]; Spearman rho = 0.45  Spearman is insensitive to apeglm shrinkage of magnitudes
+[PASS] C5   Gene-shuffle null: Microarray vs RNA-seq           null r 95% range -0.017-0.017 (obs 0.40); null agreement 51% (obs 99%)  
+[PASS] C2   Overlap above chance: Microarray vs SEA-AD         80 shared vs 35.3 expected (2.3x), hypergeometric p = 4.1e-12  
+[PASS] C3   Direction agreement vs coin-flip: Microarray vs SEA-AD 80/80 (100%), binomial p = 1.7e-24  
+[PASS] C4   Correlation robust (bootstrap CI, Spearman): Microarray vs SEA-AD r = 0.27 [95% CI 0.25-0.28]; Spearman rho = 0.33  Spearman is insensitive to apeglm shrinkage of magnitudes
+[PASS] C5   Gene-shuffle null: Microarray vs SEA-AD            null r 95% range -0.014-0.015 (obs 0.27); null agreement 49% (obs 100%)  
+[PASS] C2   Overlap above chance: RNA-seq vs SEA-AD            76 shared vs 33.6 expected (2.3x), hypergeometric p = 1.7e-11  
+[PASS] C3   Direction agreement vs coin-flip: RNA-seq vs SEA-AD 72/76 (95%), binomial p = 3.6e-17  
+[PASS] C4   Correlation robust (bootstrap CI, Spearman): RNA-seq vs SEA-AD r = 0.25 [95% CI 0.24-0.27]; Spearman rho = 0.38  Spearman is insensitive to apeglm shrinkage of magnitudes
+[PASS] C5   Gene-shuffle null: RNA-seq vs SEA-AD               null r 95% range -0.015-0.015 (obs 0.25); null agreement 50% (obs 95%)  
+[INFO] C6a  33-gene panel vs random genes                      panel 29/31 consistent; random genes mean 14.4, P(>= obs) = 0.0000  random genes are consistent ~25% of the time by chance (2 of 8 sign patterns)
+[PASS] C6b  Panel vs random microarray-significant genes       random sig genes mean 24.6/31 consistent, P(>= 29) = 0.024  random microarray-significant genes are already ~79% consistent: most of the panel's consistency reflects replication of significant genes in general
+[WARN] C7   Drop most-influential sample: Microarray vs RNA-seq r 0.40 -> 0.35; agreement 101/102 -> 57/58  dropped: 16-14T.RNA, H20.33.004
+[PASS] C7   Drop most-influential sample: Microarray vs SEA-AD r 0.27 -> 0.29; agreement 80/80 -> 115/116  dropped: 16-14T.RNA, H20.33.004
+[PASS] C7   Drop most-influential sample: RNA-seq vs SEA-AD    r 0.25 -> 0.24; agreement 72/76 -> 92/99  dropped: 16-14T.RNA, H20.33.004
+[INFO] C8   Effect-size ratio (|y|/|x|, sig in both): Microarray vs RNA-seq median 0.97  <1 = second dataset shows smaller fold changes (shrinkage, power, composition)
+[INFO] C8   Effect-size ratio (|y|/|x|, sig in both): Microarray vs SEA-AD median 1.87  <1 = second dataset shows smaller fold changes (shrinkage, power, composition)
+[INFO] C8   Effect-size ratio (|y|/|x|, sig in both): RNA-seq vs SEA-AD median 1.37  <1 = second dataset shows smaller fold changes (shrinkage, power, composition)
+                  
+                   PASS WARN FAIL INFO
+  Microarray         11    0    0    1
+  RNA-seq             8    3    0    0
+  SEA-AD              9    4    1    0
+  SEA-AD cell-type    4    3    3    1
+  Comparison         16    1    0    4

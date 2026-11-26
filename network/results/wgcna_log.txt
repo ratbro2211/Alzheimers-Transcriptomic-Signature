@@ -1,0 +1,88 @@
+Warning message:
+package ‘WGCNA’ was built under R version 4.4.3 
+Allowing parallel execution with up to 4 working processes.
+WGCNA input: 195 samples x 5002 genes
+ Flagging genes and samples with too many missing values...
+  ..step 1
+   Power SFT.R.sq   slope truncated.R.sq mean.k. median.k. max.k.
+1      1 1.33e-03 -4.5400          0.992  2510.0    2510.0   2570
+2      2 1.84e-01  2.8700          0.729  1510.0    1510.0   1730
+3      3 4.33e-02  0.4840          0.602  1010.0    1020.0   1370
+4      4 6.53e-05  0.0119          0.594   727.0     726.0   1150
+5      5 3.30e-02 -0.2070          0.662   548.0     539.0    994
+6      6 1.44e-01 -0.3730          0.737   428.0     409.0    876
+7      7 3.04e-01 -0.5290          0.805   343.0     317.0    781
+8      8 4.40e-01 -0.6510          0.848   280.0     249.0    703
+9      9 5.41e-01 -0.7600          0.875   232.0     198.0    637
+10    10 6.15e-01 -0.8570          0.893   195.0     159.0    580
+11    12 7.22e-01 -1.0200          0.923   142.0     108.0    487
+12    14 7.88e-01 -1.1100          0.953   106.0      76.4    415
+13    16 8.25e-01 -1.1800          0.970    81.9      55.8    357
+14    18 8.44e-01 -1.2400          0.976    64.3      40.8    311
+15    20 8.54e-01 -1.2900          0.978    51.3      30.4    273
+Soft-threshold power: 16  (scale-free R^2 = 0.82 )
+Modules: 13 
+cols
+  turquoise        blue       brown      yellow       green         red 
+       1221        1002         806         570         274         211 
+      black        pink     magenta        grey      purple greenyellow 
+        200         197         109         104         104         103 
+        tan 
+        101 
+
+Module eigengene vs AD:
+      module n_genes    r_AD        p      fdr
+       brown     806  0.5053 4.96e-14 6.45e-13
+   turquoise    1221 -0.4148 1.66e-09 1.08e-08
+      yellow     570 -0.4024 5.49e-09 2.38e-08
+        blue    1002  0.3935 1.26e-08 4.11e-08
+      purple     104  0.3804 4.11e-08 1.07e-07
+         red     211 -0.3781 5.03e-08 1.09e-07
+ greenyellow     103  0.2341 9.90e-04 1.84e-03
+         tan     101  0.2269 1.43e-03 2.32e-03
+        pink     197 -0.2212 1.89e-03 2.73e-03
+     magenta     109  0.1571 2.83e-02 3.68e-02
+       green     274  0.0789 2.73e-01 3.23e-01
+        grey     104 -0.0215 7.66e-01 8.30e-01
+       black     200  0.0083 9.08e-01 9.08e-01
+
+Predefined module x WGCNA module (33 genes):
+              
+               blue brown green magenta red turquoise yellow
+  Glial           0     1     2       1   0         0      0
+  Neuropeptide    0     0     0       0   0         5      3
+  Synaptic        1     1     0       0   2         5     10
+   gene predefined_module wgcna_module kME_own
+   GFAP             Glial        brown    0.72
+    VIM             Glial        green    0.86
+   GJA1             Glial        green    0.76
+  TREM2             Glial      magenta    0.66
+    SST      Neuropeptide    turquoise    0.68
+   SCG2      Neuropeptide    turquoise    0.83
+   CHGB      Neuropeptide    turquoise    0.91
+   TAC1      Neuropeptide    turquoise    0.73
+    NPY      Neuropeptide    turquoise    0.70
+    VGF      Neuropeptide       yellow    0.73
+ CARTPT      Neuropeptide       yellow    0.64
+  VSNL1      Neuropeptide       yellow    0.94
+  SCN1A          Synaptic         blue    0.48
+  CADM1          Synaptic        brown    0.38
+   NEFL          Synaptic          red    0.47
+   NRGN          Synaptic          red    0.94
+  NPTX2          Synaptic    turquoise    0.74
+ GABRA1          Synaptic    turquoise    0.84
+   NEFM          Synaptic    turquoise    0.88
+ NECAB1          Synaptic    turquoise    0.87
+ HOMER1          Synaptic    turquoise    0.82
+ SNAP25          Synaptic       yellow    0.87
+ GABRG2          Synaptic       yellow    0.95
+   SYT4          Synaptic       yellow    0.95
+    CCK          Synaptic       yellow    0.92
+ SHANK2          Synaptic       yellow    0.88
+ GRIN2A          Synaptic       yellow    0.84
+ LRRTM1          Synaptic       yellow    0.89
+  CBLN2          Synaptic       yellow    0.90
+   SYN2          Synaptic       yellow    0.96
+  NLGN1          Synaptic       yellow    0.67
+null device 
+          1 

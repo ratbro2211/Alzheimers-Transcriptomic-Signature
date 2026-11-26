@@ -1,0 +1,145 @@
+Donor h5ad files found: 20
+
+File structure (first donor):
+  n_obs x n_vars      : 27431 x 36601 
+  layers              : UMIs 
+  adata.raw present   : FALSE 
+  X_normalization     : ln(UP10K+1)   -> .X is NOT used
+  obs keys (selected) : Braak, Class, Cognitive Status, Donor ID, Overall AD neuropathological Change, Subclass, Supertype 
+  H19.33.004   27431 nuclei  max UMI/cell-gene =  9337  integer = TRUE
+  H20.33.001   19297 nuclei  max UMI/cell-gene =  8551  integer = TRUE
+  H20.33.004   20411 nuclei  max UMI/cell-gene = 10250  integer = TRUE
+  H20.33.014   21138 nuclei  max UMI/cell-gene =  7512  integer = TRUE
+  H20.33.018   20813 nuclei  max UMI/cell-gene =  8338  integer = TRUE
+  H20.33.019   17877 nuclei  max UMI/cell-gene =  6319  integer = TRUE
+  H20.33.020   17043 nuclei  max UMI/cell-gene =  4058  integer = TRUE
+  H20.33.025   23681 nuclei  max UMI/cell-gene =  8093  integer = TRUE
+  H20.33.028    7804 nuclei  max UMI/cell-gene =  4999  integer = TRUE
+  H20.33.033    4225 nuclei  max UMI/cell-gene =  2927  integer = TRUE
+  H20.33.034   16532 nuclei  max UMI/cell-gene =  8825  integer = TRUE
+  H20.33.035    8091 nuclei  max UMI/cell-gene =  9266  integer = TRUE
+  H20.33.037    4823 nuclei  max UMI/cell-gene =  4177  integer = TRUE
+  H20.33.038    2918 nuclei  max UMI/cell-gene =  1606  integer = TRUE
+  H20.33.041   14176 nuclei  max UMI/cell-gene =  9184  integer = TRUE
+  H21.33.003   18913 nuclei  max UMI/cell-gene =  5770  integer = TRUE
+  H21.33.011   18685 nuclei  max UMI/cell-gene =  8400  integer = TRUE
+  H21.33.025   12715 nuclei  max UMI/cell-gene =  7942  integer = TRUE
+  H21.33.027   26143 nuclei  max UMI/cell-gene =  8330  integer = TRUE
+  H21.33.029    8364 nuclei  max UMI/cell-gene = 10569  integer = TRUE
+
+Pseudobulk matrix: 36601 genes x 20 donors; max = 23665617; total UMIs 8.22e+09
+
+Cell-type composition (n nuclei per Subclass per donor):
+           Astrocyte Chandelier Endothelial Immune L2/3 IT L4 IT L5 ET L5 IT
+H19.33.004      2266        312         151    721    6323  3038    61  2399
+H20.33.001      1128        130          36    789    5259  2496    52  1863
+H20.33.014       190        140           7    262    6332  2114    17  2060
+H20.33.019      1012         97          15    339    5096  2386    51  2094
+H20.33.025       728        150          16    731    7916  2235    51  2175
+H20.33.034       579        125          34    345    4511  1859    22  1315
+H20.33.035       238         42           8    192    2453   894     5   597
+H21.33.003      1122        183          18    449    4776  1653    42  1635
+H21.33.011       314        147           6    466    6530  1736    29  1318
+H21.33.025       814        107          32    892    2152  1569    21  1231
+H20.33.004       937        155          21    677    5763  2596    40  1928
+H20.33.018      1948        152          48    528    3319  3283    53  2259
+H20.33.020      1549        139          30    579    3324  2713    35  1888
+H20.33.028      1843          8          41   1015     440  1584     7   315
+H20.33.033       363         21          12    168     757   603     1   222
+H20.33.037       371         34          25     67     578   899     0   553
+H20.33.038      1341          2          10    299     100   400     0    48
+H20.33.041       366         49          15    261    3505  2118    43  1554
+H21.33.027      2071        138          80   1036   10557  2474    33  1364
+H21.33.029       453         47          19    184    1838   908    34  1125
+           L5/6 NP L6 CT L6 IT L6 IT Car3 L6b Lamp5 Lamp5 Lhx6 Oligodendrocyte
+H19.33.004     456   277   944        717 231   624        540             496
+H20.33.001     370   325   891        489 299   420        284             498
+H20.33.014     313   272   545        392 209   607        319            2016
+H20.33.019     273   270   930        362 132   439        249             951
+H20.33.025     292   248   750        328 218   738        267            2133
+H20.33.034     296   182   502        237 162   397        182            2209
+H20.33.035      82    81   203        112  68   260        106            1006
+H21.33.003     214   302   561        247 250   626        272            1282
+H21.33.011     142   117   340        201 123   607        219            2020
+H21.33.025     300   162   351        213  98   386        197             780
+H20.33.004     359   251   774        349 239   594        350             708
+H20.33.018     266   376  1199        576 397   478        401            1660
+H20.33.020     220   292   806        421 401   530        281            1173
+H20.33.028      23     9   369        286 208   270         47             255
+H20.33.033      40    39   156         72  85   452         63             149
+H20.33.037      60    43   297        105 146   385         70             398
+H20.33.038       1     0     2          7   3    45          1              85
+H20.33.041     222   198   704        302 172   372        202            1484
+H21.33.027     196    35   186        204  35   658        260            1177
+H21.33.029     197   210   539        191 273   180        118             676
+            OPC Pax6 Pvalb Sncg  Sst Sst Chodl  Vip VLMC & Perivascular
+H19.33.004 1203  220  2234  252 1462        35 2388                  81
+H20.33.001  700   87  1243  146  366        10 1327                  89
+H20.33.014  547   91  1630  297 1222        22 1515                  19
+H20.33.019  503   87   928  141  470         6 1011                  35
+H20.33.025  483   80  1374  345  892        17 1484                  30
+H20.33.034  298   81  1090  197  740        18 1116                  35
+H20.33.035  118   34   494  130  399         9  549                  11
+H21.33.003  394  108  1554  318 1165        12 1700                  30
+H21.33.011  506  124  1048  380  683        11 1599                  19
+H21.33.025  429  103   874  186  454        10 1296                  58
+H20.33.004  562  119  1527  280  575        17 1526                  64
+H20.33.018  423  123  1213  102  516        19 1292                 182
+H20.33.020  298  135   752  162  394         5  815                 101
+H20.33.028  368   19    90   14   93         0  414                  86
+H20.33.033   51   62    75  129  132         1  541                  31
+H20.33.037   47   22   168   50  111         0  318                  76
+H20.33.038  380    3    26   12   56         0   64                  33
+H20.33.041  353   77   859  211  305         9  781                  14
+H21.33.027 1846  188  1503  276  359        19 1267                 181
+H21.33.029  241   43   667   17  128         4  238                  34
+
+================ PSEUDOBULK COLDATA (verify before DESeq2) ================
+   donor_id condition cognitive_status n_cells         ADNC     braak age
+ H19.33.004   control      No dementia   27431       Not AD  Braak IV  80
+ H20.33.001   control      No dementia   19297          Low  Braak IV  82
+ H20.33.014   control      No dementia   21138 Intermediate  Braak IV  82
+ H20.33.019   control      No dementia   17877 Intermediate Braak III  87
+ H20.33.025   control      No dementia   23681         High   Braak V  94
+ H20.33.034   control      No dementia   16532 Intermediate  Braak IV  85
+ H20.33.035   control      No dementia    8091       Not AD  Braak IV  99
+ H21.33.003   control      No dementia   18913       Not AD   Braak 0  78
+ H21.33.011   control      No dementia   18685       Not AD  Braak IV  83
+ H21.33.025   control      No dementia   12715 Intermediate  Braak IV  88
+ H20.33.004        AD         Dementia   20411         High   Braak V  86
+ H20.33.018        AD         Dementia   20813         High  Braak VI  81
+ H20.33.020        AD         Dementia   17043         High  Braak VI  81
+ H20.33.028        AD         Dementia    7804         High   Braak V  94
+ H20.33.033        AD         Dementia    4225         High  Braak VI  68
+ H20.33.037        AD         Dementia    4823         High   Braak V  96
+ H20.33.038        AD         Dementia    2918         High   Braak V  90
+ H20.33.041        AD         Dementia   14176         High   Braak V  91
+ H21.33.027        AD         Dementia   26143         High   Braak V  92
+ H21.33.029        AD         Dementia    8364         High   Braak V  89
+    sex
+ Female
+   Male
+ Female
+ Female
+   Male
+ Female
+ Female
+   Male
+ Female
+ Female
+   Male
+ Female
+   Male
+ Female
+   Male
+ Female
+ Female
+ Female
+   Male
+   Male
+
+control      AD 
+     10      10 
+===========================================================================
+
+--build-only: stopping before DESeq2. Re-run without the flag to continue.

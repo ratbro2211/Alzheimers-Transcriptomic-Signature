@@ -1,0 +1,10 @@
+dataset,module_A,Glial,Neuropeptide,Synaptic
+ARR,Glial,0.355,-0.374,-0.348
+ARR,Neuropeptide,-0.374,0.74,0.598
+ARR,Synaptic,-0.348,0.598,0.515
+RNA,Glial,0.199,-0.283,-0.286
+RNA,Neuropeptide,-0.283,0.523,0.439
+RNA,Synaptic,-0.286,0.439,0.576
+SEA,Glial,0.729,-0.473,-0.15
+SEA,Neuropeptide,-0.473,0.611,0.315
+SEA,Synaptic,-0.15,0.315,0.304

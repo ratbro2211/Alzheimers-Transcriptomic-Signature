@@ -1,0 +1,14 @@
+[PASS] V1   Donor labels (cognitive status)                  AD 10 / control 10  
+[PASS] V1b  Input is raw integer UMI counts                  integer = TRUE; max per-donor gene count = 23665617  
+[WARN] V1c  Controls free of AD neuropathology               5/10 controls have Intermediate/High ADNC (H20.33.014, H20.33.019, H20.33.025, H20.33.034, H21.33.025)  labels are clinical (dementia), not pathological; dilutes contrast
+[PASS] V2   Canonical AD markers in expected direction       14/16 (unshrunk log2FC); significant: 4  apeglm shrinks most of these to ~0
+[PASS] V3a  Age balanced                                     median AD 90 vs control 84, p = 0.50  
+[PASS] V3b  Sex balanced                                     female AD 5/10 vs control 7/10, p = 0.65  
+[PASS] V4   Age + sex adjustment changes little              r(log2FC) = 0.971; DEGs 1520 -> 2547  
+[PASS] V5   p-value histogram: uniform tail + low-p spike    pi0 = 0.55; tail ratio = 0.84  
+[PASS] V6a  Neuronal fraction balanced between groups        median AD 79% vs control 82%, p = 0.052  
+[PASS] V6b  DE log2FC explained by neuronal fraction         rho(log2FC, gene~neuronal-fraction corr) = -0.83 all genes, -0.44 DEGs  strongly negative = DEGs track loss of neurons, not per-cell change
+[WARN] V6c  Adjusting for neuronal fraction                  r(log2FC) = 0.85; DEGs 1520 -> 82  large change = composition drives much of the bulk signal
+[PASS] V7   Label-permutation null: DEGs under shuffled labels observed 1520; null median 2, max 5506 (20 perms)  
+[PASS] V8   Outlier donors (Mahalanobis PC1-3, p<0.01)       0: ; PC1 vs neuronal fraction rho = 0.58  
+[WARN] V9   Leave-one-out: no single donor drives the result min r = 0.959; DEG change -82% to +95%; most influential H20.33.004  

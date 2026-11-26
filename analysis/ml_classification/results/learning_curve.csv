@@ -1,0 +1,11 @@
+"fraction","n","model","AUC_mean","AUC_sd"
+0.2,39,"Logistic (L2)",0.799,0.069
+0.4,78,"Logistic (L2)",0.797,0.049
+0.6,117,"Logistic (L2)",0.857,0.025
+0.8,156,"Logistic (L2)",0.854,0.012
+1,195,"Logistic (L2)",0.869,NA
+0.2,39,"Random forest",0.802,0.048
+0.4,78,"Random forest",0.779,0.053
+0.6,117,"Random forest",0.835,0.032
+0.8,156,"Random forest",0.843,0.016
+1,195,"Random forest",0.864,NA

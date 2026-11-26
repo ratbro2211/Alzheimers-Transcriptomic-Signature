@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="weight" attr.type="double"/>
+<graph edgedefault="undirected"><node id="VGF"/>
+<node id="SST"/>
+<node id="SCG2"/>
+<node id="CARTPT"/>
+<node id="CHGB"/>
+<node id="VSNL1"/>
+<node id="TAC1"/>
+<node id="SNAP25"/>
+<node id="NPTX2"/>
+<node id="NEFL"/>
+<node id="GABRA1"/>
+<node id="NRGN"/>
+<node id="GABRG2"/>
+<node id="SYT4"/>
+<node id="CCK"/>
+<node id="NEFM"/>
+<node id="SHANK2"/>
+<node id="GRIN2A"/>
+<node id="NECAB1"/>
+<node id="LRRTM1"/>
+<node id="CBLN2"/>
+<node id="CAMK2A"/>
+<node id="SYN2"/>
+<node id="HOMER1"/>
+<node id="NPY"/>
+<node id="SCN1A"/>
+<node id="PENK"/>
+<node id="NLGN1"/>
+<node id="CADM1"/>
+<node id="VIM"/>
+<node id="TREM2"/>
+<node id="GJA1"/>
+<node id="GFAP"/>
+<edge source="VGF" target="CCK">
+  <data key="d0">0.516</data>
+</edge>
+<edge source="VGF" target="CARTPT">
+  <data key="d0">0.57</data>
+</edge>
+<edge source="VGF" target="NPTX2">
+  <data key="d0">0.572</data>
+</edge>
+<edge source="VGF" target="SST">
+  <data key="d0">0.585</data>
+</edge>
+<edge source="VGF" target="NPY">
+  <data key="d0">0.676</data>
+</edge>
+<edge source="VGF" target="CHGB">
+  <data key="d0">0.7</data>
+</edge>
+<edge source="VGF" target="SCG2">
+  <data key="d0">0.743</data>
+</edge>
+<edge source="SST" target="GFAP">
+  <data key="d0">0.523</data>
+</edge>
+<edge source="SST" target="SNAP25">
+  <data key="d0">0.484</data>
+</edge>
+<edge source="SST" target="SYN2">
+  <data key="d0">0.408</data>
+</edge>
+<edge source="SST" target="GRIN2A">
+  <data key="d0">0.43</data>
+</edge>
+<edge source="SST" target="SCN1A">
+  <data key="d0">0.453</data>
+</edge>
+<edge source="SST" target="CAMK2A">
+  <data key="d0">0.472</data>
+</edge>
+<edge source="SST" target="SCG2">
+  <data key="d0">0.544</data>
+</edge>
+<edge source="SST" target="CHGB">
+  <data key="d0">0.619</data>
+</edge>
+<edge source="SST" target="CARTPT">
+  <data key="d0">0.653</data>
+</edge>
+<edge source="SST" target="CCK">
+  <data key="d0">0.877</data>
+</edge>
+<edge source="SST" target="PENK">
+  <data key="d0">0.899</data>
+</edge>
+<edge source="SST" target="TAC1">
+  <data key="d0">0.912</data>
+</edge>
+<edge source="SST" target="NPY">
+  <data key="d0">0.965</data>
+</edge>
+<edge source="SCG2" target="SNAP25">
+  <data key="d0">0.511</data>
+</edge>
+<edge source="SCG2" target="SYT4">
+  <data key="d0">0.476</data>
+</edge>
+<edge source="SCG2" target="CARTPT">
+  <data key="d0">0.416</data>
+</edge>
+<edge source="SCG2" target="PENK">
+  <data key="d0">0.533</data>
+</edge>
+<edge source="SCG2" target="NPY">
+  <data key="d0">0.567</data>
+</edge>
+<edge source="SCG2" target="TAC1">
+  <data key="d0">0.568</data>
+</edge>
+<edge source="SCG2" target="CHGB">
+  <data key="d0">0.986</data>
+</edge>
+<edge source="CARTPT" target="CHGB">
+  <data key="d0">0.467</data>
+</edge>
+<edge source="CARTPT" target="PENK">
+  <data key="d0">0.53</data>
+</edge>
+<edge source="CARTPT" target="TAC1">
+  <data key="d0">0.608</data>
+</edge>
+<edge source="CARTPT" target="CCK">
+  <data key="d0">0.649</data>
+</edge>
+<edge source="CARTPT" target="NPY">
+  <data key="d0">0.888</data>
+</edge>
+<edge source="CHGB" target="SNAP25">
+  <data key="d0">0.623</data>
+</edge>
+<edge source="CHGB" target="SYT4">
+  <data key="d0">0.608</data>
+</edge>
+<edge source="CHGB" target="TAC1">
+  <data key="d0">0.505</data>
+</edge>
+<edge source="CHGB" target="CCK">
+  <data key="d0">0.437</data>
+</edge>
+<edge source="CHGB" target="CAMK2A">
+  <data key="d0">0.453</data>
+</edge>
+<edge source="CHGB" target="NPY">
+  <data key="d0">0.659</data>
+</edge>
+<edge source="CHGB" target="PENK">
+  <data key="d0">0.742</data>
+</edge>
+<edge source="VSNL1" target="SNAP25">
+  <data key="d0">0.69</data>
+</edge>
+<edge source="VSNL1" target="NRGN">
+  <data key="d0">0.731</data>
+</edge>
+<edge source="VSNL1" target="NEFL">
+  <data key="d0">0.651</data>
+</edge>
+<edge source="TAC1" target="GFAP">
+  <data key="d0">0.438</data>
+</edge>
+<edge source="TAC1" target="SNAP25">
+  <data key="d0">0.514</data>
+</edge>
+<edge source="TAC1" target="SYT4">
+  <data key="d0">0.419</data>
+</edge>
+<edge source="TAC1" target="PENK">
+  <data key="d0">0.767</data>
+</edge>
+<edge source="TAC1" target="CCK">
+  <data key="d0">0.847</data>
+</edge>
+<edge source="TAC1" target="NPY">
+  <data key="d0">0.893</data>
+</edge>
+<edge source="SNAP25" target="NEFM">
+  <data key="d0">0.54</data>
+</edge>
+<edge source="SNAP25" target="GFAP">
+  <data key="d0">0.638</data>
+</edge>
+<edge source="SNAP25" target="NPY">
+  <data key="d0">0.407</data>
+</edge>
+<edge source="SNAP25" target="CCK">
+  <data key="d0">0.415</data>
+</edge>
+<edge source="SNAP25" target="HOMER1">
+  <data key="d0">0.452</data>
+</edge>
+<edge source="SNAP25" target="NLGN1">
+  <data key="d0">0.498</data>
+</edge>
+<edge source="SNAP25" target="GABRA1">
+  <data key="d0">0.529</data>
+</edge>
+<edge source="SNAP25" target="GRIN2A">
+  <data key="d0">0.535</data>
+</edge>
+<edge source="SNAP25" target="CAMK2A">
+  <data key="d0">0.548</data>
+</edge>
+<edge source="SNAP25" target="GABRG2">
+  <data key="d0">0.552</data>
+</edge>
+<edge source="SNAP25" target="NRGN">
+  <data key="d0">0.686</data>
+</edge>
+<edge source="SNAP25" target="NEFL">
+  <data key="d0">0.724</data>
+</edge>
+<edge source="SNAP25" target="SYT4">
+  <data key="d0">0.753</data>
+</edge>
+<edge source="SNAP25" target="SYN2">
+  <data key="d0">0.877</data>
+</edge>
+<edge source="NPTX2" target="PENK">
+  <data key="d0">0.411</data>
+</edge>
+<edge source="NPTX2" target="NEFL">
+  <data key="d0">0.418</data>
+</edge>
+<edge source="NPTX2" target="NRGN">
+  <data key="d0">0.451</data>
+</edge>
+<edge source="NPTX2" target="HOMER1">
+  <data key="d0">0.501</data>
+</edge>
+<edge source="NEFL" target="NEFM">
+  <data key="d0">0.999</data>
+</edge>
+<edge source="NEFL" target="GFAP">
+  <data key="d0">0.974</data>
+</edge>
+<edge source="NEFL" target="SYT4">
+  <data key="d0">0.418</data>
+</edge>
+<edge source="NEFL" target="NRGN">
+  <data key="d0">0.772</data>
+</edge>
+<edge source="NEFL" target="GRIN2A">
+  <data key="d0">0.68</data>
+</edge>
+<edge source="NEFL" target="HOMER1">
+  <data key="d0">0.489</data>
+</edge>
+<edge source="NEFL" target="SHANK2">
+  <data key="d0">0.456</data>
+</edge>
+<edge source="NEFL" target="TREM2">
+  <data key="d0">0.593</data>
+</edge>
+<edge source="NEFL" target="GABRA1">
+  <data key="d0">0.657</data>
+</edge>
+<edge source="NEFL" target="PENK">
+  <data key="d0">0.461</data>
+</edge>
+<edge source="NEFL" target="VIM">
+  <data key="d0">0.999</data>
+</edge>
+<edge source="NEFL" target="SYN2">
+  <data key="d0">0.465</data>
+</edge>
+<edge source="NEFL" target="CAMK2A">
+  <data key="d0">0.728</data>
+</edge>
+<edge source="GABRA1" target="GFAP">
+  <data key="d0">0.448</data>
+</edge>
+<edge source="GABRA1" target="SCN1A">
+  <data key="d0">0.806</data>
+</edge>
+<edge source="GABRA1" target="GRIN2A">
+  <data key="d0">0.69</data>
+</edge>
+<edge source="GABRA1" target="CAMK2A">
+  <data key="d0">0.422</data>
+</edge>
+<edge source="GABRA1" target="SYN2">
+  <data key="d0">0.424</data>
+</edge>
+<edge source="GABRA1" target="GABRG2">
+  <data key="d0">0.999</data>
+</edge>
+<edge source="NRGN" target="GFAP">
+  <data key="d0">0.446</data>
+</edge>
+<edge source="NRGN" target="CAMK2A">
+  <data key="d0">0.455</data>
+</edge>
+<edge source="NRGN" target="TREM2">
+  <data key="d0">0.509</data>
+</edge>
+<edge source="GABRG2" target="SYT4">
+  <data key="d0">0.476</data>
+</edge>
+<edge source="GABRG2" target="SCN1A">
+  <data key="d0">0.952</data>
+</edge>
+<edge source="GABRG2" target="GRIN2A">
+  <data key="d0">0.595</data>
+</edge>
+<edge source="GABRG2" target="SHANK2">
+  <data key="d0">0.748</data>
+</edge>
+<edge source="SYT4" target="NEFM">
+  <data key="d0">0.495</data>
+</edge>
+<edge source="SYT4" target="SYN2">
+  <data key="d0">0.516</data>
+</edge>
+<edge source="CCK" target="GFAP">
+  <data key="d0">0.497</data>
+</edge>
+<edge source="CCK" target="PENK">
+  <data key="d0">0.562</data>
+</edge>
+<edge source="CCK" target="NPY">
+  <data key="d0">0.862</data>
+</edge>
+<edge source="NEFM" target="CAMK2A">
+  <data key="d0">0.464</data>
+</edge>
+<edge source="NEFM" target="GFAP">
+  <data key="d0">0.935</data>
+</edge>
+<edge source="NEFM" target="VIM">
+  <data key="d0">0.999</data>
+</edge>
+<edge source="SHANK2" target="SCN1A">
+  <data key="d0">0.437</data>
+</edge>
+<edge source="SHANK2" target="GRIN2A">
+  <data key="d0">0.565</data>
+</edge>
+<edge source="SHANK2" target="HOMER1">
+  <data key="d0">0.843</data>
+</edge>
+<edge source="SHANK2" target="CAMK2A">
+  <data key="d0">0.564</data>
+</edge>
+<edge source="SHANK2" target="NLGN1">
+  <data key="d0">0.875</data>
+</edge>
+<edge source="GRIN2A" target="GFAP">
+  <data key="d0">0.521</data>
+</edge>
+<edge source="GRIN2A" target="SCN1A">
+  <data key="d0">0.607</data>
+</edge>
+<edge source="GRIN2A" target="SYN2">
+  <data key="d0">0.502</data>
+</edge>
+<edge source="GRIN2A" target="NLGN1">
+  <data key="d0">0.542</data>
+</edge>
+<edge source="GRIN2A" target="HOMER1">
+  <data key="d0">0.75</data>
+</edge>
+<edge source="GRIN2A" target="CAMK2A">
+  <data key="d0">0.97</data>
+</edge>
+<edge source="LRRTM1" target="CBLN2">
+  <data key="d0">0.491</data>
+</edge>
+<edge source="LRRTM1" target="NLGN1">
+  <data key="d0">0.711</data>
+</edge>
+<edge source="CBLN2" target="NLGN1">
+  <data key="d0">0.419</data>
+</edge>
+<edge source="CAMK2A" target="GFAP">
+  <data key="d0">0.758</data>
+</edge>
+<edge source="CAMK2A" target="HOMER1">
+  <data key="d0">0.815</data>
+</edge>
+<edge source="CAMK2A" target="PENK">
+  <data key="d0">0.517</data>
+</edge>
+<edge source="CAMK2A" target="SYN2">
+  <data key="d0">0.63</data>
+</edge>
+<edge source="SYN2" target="GFAP">
+  <data key="d0">0.686</data>
+</edge>
+<edge source="SYN2" target="SCN1A">
+  <data key="d0">0.441</data>
+</edge>
+<edge source="SYN2" target="HOMER1">
+  <data key="d0">0.51</data>
+</edge>
+<edge source="SYN2" target="NLGN1">
+  <data key="d0">0.518</data>
+</edge>
+<edge source="HOMER1" target="GFAP">
+  <data key="d0">0.491</data>
+</edge>
+<edge source="HOMER1" target="NLGN1">
+  <data key="d0">0.72</data>
+</edge>
+<edge source="NPY" target="GFAP">
+  <data key="d0">0.527</data>
+</edge>
+<edge source="NPY" target="PENK">
+  <data key="d0">0.859</data>
+</edge>
+<edge source="NLGN1" target="CADM1">
+  <data key="d0">0.577</data>
+</edge>
+<edge source="VIM" target="GFAP">
+  <data key="d0">0.99</data>
+</edge>
+<edge source="VIM" target="GJA1">
+  <data key="d0">0.431</data>
+</edge>
+<edge source="TREM2" target="GFAP">
+  <data key="d0">0.644</data>
+</edge>
+<edge source="GJA1" target="GFAP">
+  <data key="d0">0.599</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,4 @@
+statistic,observed,null_mean,null_sd,z,p_empirical
+Q predefined 3 modules,0.232,-0.021,0.03,8.55,0.000999000999000999
+Q Louvain,0.379,0.189,0.013,14.28,0.000999000999000999
+avg clustering,0.621,0.392,0.033,6.86,0.000999000999000999

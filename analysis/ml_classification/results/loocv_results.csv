@@ -1,0 +1,5 @@
+"model","rule","AUC","AUC_CI_low","AUC_CI_high","AUC_wilcox_p","threshold","sensitivity","specificity","balanced_accuracy","TP","FN","TN","FP"
+"Logistic (L2)","sensitivity >= 0.85",0.869,0.819,0.919,5.1e-19,0.39,0.856,0.724,0.79,83,14,71,27
+"Logistic (L2)","threshold 0.5",0.869,0.819,0.919,5.1e-19,0.5,0.784,0.796,0.79,76,21,78,20
+"Random forest","sensitivity >= 0.85",0.864,0.814,0.914,1.7e-18,0.424,0.856,0.745,0.8,83,14,73,25
+"Random forest","threshold 0.5",0.864,0.814,0.914,1.7e-18,0.5,0.773,0.786,0.779,75,22,77,21

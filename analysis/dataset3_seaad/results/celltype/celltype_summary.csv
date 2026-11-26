@@ -1,0 +1,11 @@
+"celltype","label","donors_AD","donors_control","median_nuclei","genes_tested","DEGs","up","down","DEGs_mle","perm_null_median","perm_null_max","perm_p","drop2_r_lfc","drop2_DEGs","drop2_retained"
+"Exc_IT","Excitatory IT",10,10,9012,30677,379,322,57,409,0,38,0.048,0.958,71,0.16
+"Exc_deep","Excitatory deep",9,10,714,23641,119,90,29,133,0,1588,0.238,0.977,65,0.42
+"Inh_Pvalb","Pvalb/Chandelier",10,10,1110,22728,41,41,0,43,0,12,0.048,0.97,9,0.21
+"Inh_Sst","Sst/Sst Chodl",10,10,436,18391,57,52,5,59,0,33,0.048,0.961,5,0.07
+"Inh_CGE","Vip/Lamp5/Sncg/Pax6",10,10,2070.5,24314,126,114,12,142,0,19,0.048,0.961,6,0.04
+"Astrocyte","Astrocyte",10,10,875.5,20230,52,45,7,53,0.5,163,0.095,0.935,17,0.26
+"Microglia","Microglia/immune",10,10,457.5,15538,85,77,8,90,0,46,0.048,0.929,51,0.48
+"Oligodendrocyte","Oligodendrocyte",10,10,978.5,17917,109,83,26,122,0,18,0.048,0.956,81,0.6
+"OPC","OPC",10,10,408.5,17250,3,3,0,3,0,28,0.19,0.867,0,0
+"Vascular","Vascular",10,9,69,11251,12,7,5,12,1,7,0.048,0.952,6,0.42

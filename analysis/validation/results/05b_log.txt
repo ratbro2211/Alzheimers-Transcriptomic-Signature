@@ -1,0 +1,11 @@
+[PASS] V1   Sample labels (AD vs age-matched Old)            AD 12 / control 10; Young excluded  
+[PASS] V1b  Raw counts recovered exactly from GEO table      max deviation from integer = 2.1e-09  
+[PASS] V2   Canonical AD markers in expected direction       12/15 (neuronal down 10/10; glial up 2/5)  
+[PASS] V3a  Age balanced between AD and control              median AD 66 vs control 68, p = 1.00  sex not provided in GEO
+[WARN] V3b  Library size not confounded with condition       size factors 0.76-1.25; library size p = 0.02  
+[PASS] V4   Age-adjusted model changes little                r(log2FC) = 0.979; DEGs 1152 -> 1195  
+[PASS] V5   p-value histogram: uniform tail + low-p spike    pi0 = 0.57; tail ratio = 0.88  
+[PASS] V5b  Cook's distance outlier genes                    119 genes (0.7%); most often driven by 11-10T.RNA, 24-3T.RNA, 13-11T.RNA  DESeq2 replaces/flags these automatically
+[WARN] V6   Label-permutation null: DEGs under shuffled labels observed 1152; null median 0, max 583; 0/20 perms >= observed; empirical p = 0.048  FAIL if empirical p > 0.05; WARN if any permutation reaches 50% of observed
+[WARN] V7   Outlier samples (Mahalanobis PC1-3, p<0.01)      1: 11-10T.RNA; condition p on PC1 = 0.25  
+[PASS] V8   Leave-one-out: no single sample drives the result min r = 0.961; DEG change -38% to +36%; most influential 16-14T.RNA  

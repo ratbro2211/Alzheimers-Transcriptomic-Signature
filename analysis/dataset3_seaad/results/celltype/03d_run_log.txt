@@ -1,0 +1,170 @@
+Reusing saved per-cell-type results:
+        celltype DEGs perm_p drop2_retained
+          Exc_IT  379  0.048           0.16
+        Exc_deep  119  0.238           0.42
+       Inh_Pvalb   41  0.048           0.21
+         Inh_Sst   57  0.048           0.07
+         Inh_CGE  126  0.048           0.04
+       Astrocyte   52  0.095           0.26
+       Microglia   85  0.048           0.48
+ Oligodendrocyte  109  0.048           0.60
+             OPC    3  0.190           0.00
+        Vascular   12  0.048           0.42
+
+==== SUMMARY ====
+               label donors_AD donors_control genes_tested DEGs  up down perm_p perm_null_max drop2_r_lfc drop2_retained
+       Excitatory IT        10             10        30677  379 322   57  0.048            38       0.958           0.16
+     Excitatory deep         9             10        23641  119  90   29  0.238          1588       0.977           0.42
+    Pvalb/Chandelier        10             10        22728   41  41    0  0.048            12       0.970           0.21
+       Sst/Sst Chodl        10             10        18391   57  52    5  0.048            33       0.961           0.07
+ Vip/Lamp5/Sncg/Pax6        10             10        24314  126 114   12  0.048            19       0.961           0.04
+           Astrocyte        10             10        20230   52  45    7  0.095           163       0.935           0.26
+    Microglia/immune        10             10        15538   85  77    8  0.048            46       0.929           0.48
+     Oligodendrocyte        10             10        17917  109  83   26  0.048            18       0.956           0.60
+                 OPC        10             10        17250    3   3    0  0.190            28       0.867           0.00
+            Vascular        10              9        11251   12   7    5  0.048             7       0.952           0.42
+
+==== CONCORDANCE WITH BULK ====
+        celltype       bulk n_genes pearson spearman sig_both same_direction pct_same
+    Whole_tissue Microarray   16242   0.266    0.330       80             80    100.0
+    Whole_tissue    RNA-seq   15777   0.253    0.377       76             72     94.7
+          Exc_IT Microarray   15711   0.126    0.169        9              9    100.0
+          Exc_IT    RNA-seq   15515   0.186    0.222        8              8    100.0
+        Exc_deep Microarray   14137   0.109    0.144        5              5    100.0
+        Exc_deep    RNA-seq   14671   0.175    0.221        3              3    100.0
+       Inh_Pvalb Microarray   13344   0.064    0.127        1              1    100.0
+       Inh_Pvalb    RNA-seq   14069   0.087    0.125        1              1    100.0
+         Inh_Sst Microarray   11961   0.029    0.091        1              1    100.0
+         Inh_Sst    RNA-seq   12859   0.048    0.118        0              0       NA
+         Inh_CGE Microarray   13612   0.059    0.112        5              5    100.0
+         Inh_CGE    RNA-seq   14339   0.104    0.150        1              1    100.0
+       Astrocyte Microarray   13442   0.073    0.111        0              0       NA
+       Astrocyte    RNA-seq   14275   0.118    0.201        1              0      0.0
+       Microglia Microarray   11869   0.056    0.109        2              2    100.0
+       Microglia    RNA-seq   12708   0.055    0.185        2              2    100.0
+ Oligodendrocyte Microarray   11960   0.061    0.095        2              1     50.0
+ Oligodendrocyte    RNA-seq   12899   0.088    0.195        5              5    100.0
+             OPC Microarray   12312   0.012    0.019        0              0       NA
+             OPC    RNA-seq   13267  -0.005    0.076        0              0       NA
+        Vascular Microarray    8518   0.059    0.059        0              0       NA
+        Vascular    RNA-seq    9104   0.064    0.077        0              0       NA
+
+==== 33-GENE PANEL IN HOME CELL TYPE ====
+   gene home_celltype home_log2FC home_log2FC_mle home_padj whole_tissue_log2FC_mle n_celltypes_sig
+    VGF        Exc_IT   -0.005080        -0.06122     0.944               -0.422929               0
+    SST       Inh_Sst   -0.001604        -0.35272     0.914               -1.458878               0
+   SCG2        Exc_IT    0.031651         0.19880     0.627               -0.071524               0
+ CARTPT        Exc_IT   -0.027506        -1.13652     0.353               -1.109351               0
+   CHGB        Exc_IT   -0.353896        -0.57334     0.135               -0.710490               0
+  VSNL1        Exc_IT   -0.055976        -0.08383     0.578               -0.334410               0
+   TAC1     Inh_Pvalb   -0.023152        -0.53900     0.498               -1.093721               0
+ SNAP25        Exc_IT   -0.060289        -0.12685     0.575               -0.287719               0
+  NPTX2        Exc_IT   -0.099849        -0.73787     0.202               -0.726325               0
+   NEFL        Exc_IT   -0.031841        -0.19392     0.643               -0.318429               0
+ GABRA1        Exc_IT    0.005110         0.01005     0.970               -0.228741               0
+   NRGN        Exc_IT    0.014067         0.05366     0.891               -0.163553               0
+ GABRG2        Exc_IT    0.077391         0.12106     0.435               -0.123611               0
+   SYT4        Exc_IT    0.025694         0.12802     0.739               -0.000678               0
+    CCK        Exc_IT   -0.073684        -0.31375     0.414               -0.369029               0
+   NEFM        Exc_IT   -0.208416        -0.42541     0.191               -0.528054               0
+ SHANK2        Exc_IT    0.010814         0.00711     0.967               -0.182322               0
+ GRIN2A        Exc_IT    0.006098         0.02042     0.864               -0.205400               0
+ NECAB1        Exc_IT    0.008334         0.01514     0.948               -0.207740               1
+ LRRTM1        Exc_IT   -0.088016        -0.27448     0.395               -0.261552               0
+  CBLN2        Exc_IT    0.086424         0.24871     0.409               -0.033102               0
+ CAMK2A        Exc_IT   -0.090119        -0.12731     0.391               -0.335326               0
+   SYN2        Exc_IT    0.085731         0.11764     0.352               -0.157522               0
+ HOMER1        Exc_IT   -0.142969        -0.33560     0.261               -0.509951               0
+    NPY       Inh_Sst    0.000483         0.11956     0.979               -0.838191               0
+  SCN1A        Exc_IT   -0.004064        -0.01186     0.967               -0.171927               0
+   PENK       Inh_CGE    0.005385         0.34772     0.793               -0.309743               0
+  NLGN1        Exc_IT    0.084100         0.14301     0.437                0.084734               0
+  CADM1        Exc_IT    0.297295         0.39126     0.103                0.733791               1
+    VIM     Astrocyte   -0.002967        -0.04417     0.974                2.042437               1
+  TREM2     Microglia    0.017271         0.14397     0.862                1.219967               0
+   GJA1     Astrocyte    0.069063         0.43384     0.462                2.726666               0
+   GFAP     Astrocyte    0.001530         0.03146     0.987                1.326533               0
+─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.2 (2024-10-31)
+ os       macOS Sequoia 15.7.3
+ system   aarch64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_IN.UTF-8
+ ctype    en_IN.UTF-8
+ tz       Asia/Kolkata
+ date     2026-11-25
+ pandoc   3.6 @ /opt/homebrew/bin/pandoc
+ quarto   NA
+
+─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ package              * version    date (UTC) lib source
+ abind                  1.4-8      2024-09-12 [1] CRAN (R 4.4.1)
+ apeglm               * 1.28.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ bbmle                  1.0.25.1   2023-12-09 [1] CRAN (R 4.4.0)
+ bdsmatrix              1.3-7      2024-03-02 [1] CRAN (R 4.4.1)
+ Biobase              * 2.66.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ BiocGenerics         * 0.52.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ BiocParallel           1.40.2     2025-04-08 [1] Bioconductor
+ cli                    3.6.6      2026-04-09 [1] CRAN (R 4.4.2)
+ coda                   0.19-4.1   2024-01-31 [1] CRAN (R 4.4.1)
+ codetools              0.2-20     2024-03-31 [1] CRAN (R 4.4.2)
+ colorspace             2.1-4      2026-10-08 [1] CRAN (R 4.4.2)
+ crayon                 1.5.3      2024-06-20 [1] CRAN (R 4.4.0)
+ DelayedArray           0.32.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ DESeq2               * 1.46.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ dplyr                  1.2.1      2026-04-03 [1] CRAN (R 4.4.2)
+ emdbook                1.3.14     2025-07-23 [1] CRAN (R 4.4.1)
+ farver                 2.1.2      2024-05-13 [1] CRAN (R 4.4.0)
+ generics               0.1.4      2025-05-09 [1] CRAN (R 4.4.1)
+ GenomeInfoDb         * 1.42.3     2025-01-27 [1] Bioconductor 3.20 (R 4.4.2)
+ GenomeInfoDbData       1.2.13     2025-08-21 [1] Bioconductor
+ GenomicRanges        * 1.58.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ ggplot2              * 4.0.3      2026-04-22 [1] CRAN (R 4.4.2)
+ glue                   1.8.1      2026-04-17 [1] CRAN (R 4.4.2)
+ gtable                 0.3.6      2024-10-25 [1] CRAN (R 4.4.1)
+ httr                   1.4.9      2026-09-01 [1] CRAN (R 4.4.2)
+ IRanges              * 2.40.1     2024-12-05 [1] Bioconductor 3.20 (R 4.4.2)
+ jsonlite               2.0.0      2025-03-27 [1] CRAN (R 4.4.1)
+ labeling               0.4.3      2023-08-29 [1] CRAN (R 4.4.0)
+ lattice                0.23-1     2026-08-12 [1] CRAN (R 4.4.2)
+ lifecycle              1.0.5      2026-01-08 [1] CRAN (R 4.4.3)
+ locfit                 1.5-9.12   2025-03-05 [1] CRAN (R 4.4.1)
+ magrittr               2.0.5      2026-04-04 [1] CRAN (R 4.4.2)
+ MASS                   7.3-66     2026-07-15 [1] CRAN (R 4.4.2)
+ Matrix                 1.7-5      2026-03-21 [1] CRAN (R 4.4.3)
+ MatrixGenerics       * 1.18.1     2025-01-09 [1] Bioconductor 3.20 (R 4.4.2)
+ matrixStats          * 1.5.0      2025-01-07 [1] CRAN (R 4.4.1)
+ mvtnorm                1.3-6      2026-03-15 [1] CRAN (R 4.4.3)
+ numDeriv               2016.8-1.1 2019-06-06 [1] CRAN (R 4.4.0)
+ pheatmap             * 1.0.13     2025-06-05 [1] CRAN (R 4.4.1)
+ pillar                 1.11.1     2025-09-17 [1] CRAN (R 4.4.1)
+ pkgconfig              2.0.3      2019-09-22 [1] CRAN (R 4.4.0)
+ plyr                   1.8.9      2023-10-02 [1] CRAN (R 4.4.0)
+ R6                     2.6.1      2025-02-15 [1] CRAN (R 4.4.1)
+ ragg                   1.5.1      2026-03-06 [1] CRAN (R 4.4.3)
+ RColorBrewer           1.1-3      2022-04-03 [1] CRAN (R 4.4.1)
+ Rcpp                   1.1.2      2026-07-05 [1] CRAN (R 4.4.2)
+ rlang                  1.3.0      2026-07-05 [1] CRAN (R 4.4.2)
+ S4Arrays               1.6.0      2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ S4Vectors            * 0.44.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ S7                     0.2.2      2026-04-22 [1] CRAN (R 4.4.2)
+ scales                 1.4.0      2025-04-24 [1] CRAN (R 4.4.1)
+ sessioninfo            1.2.4      2026-06-04 [1] CRAN (R 4.4.2)
+ SparseArray            1.6.2      2025-02-20 [1] Bioconductor 3.20 (R 4.4.2)
+ SummarizedExperiment * 1.36.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ systemfonts            1.3.2      2026-03-05 [1] CRAN (R 4.4.3)
+ textshaping            1.0.5      2026-03-06 [1] CRAN (R 4.4.3)
+ tibble                 3.3.1      2026-01-11 [1] CRAN (R 4.4.3)
+ tidyselect             1.2.1      2024-03-11 [1] CRAN (R 4.4.0)
+ UCSC.utils             1.2.0      2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ vctrs                  0.7.3      2026-04-11 [1] CRAN (R 4.4.2)
+ withr                  3.0.3      2026-06-19 [1] CRAN (R 4.4.2)
+ XVector                0.46.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ zlibbioc               1.52.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+
+ [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+ * ── Packages attached to the search path.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

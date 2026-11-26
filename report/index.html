@@ -1,0 +1,355 @@
+<title>AD Transcriptome Atlas Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: sticky contents rail on wide screens + one reading column (paper structure: abstract, intro, methods, results, discussion); single column on phones */
+:root{
+  --bg:#f7f8f8; --surface:#ffffff; --ink:#17202a; --ink-2:#4a5562; --rule:#dde2e6;
+  --accent:#1f6f8b; --accent-soft:#e3f0f5;
+  --pass:#1f7a4d; --pass-bg:#e2f3ea; --warn:#8a5a00; --warn-bg:#fbefd6; --fail:#a4262c; --fail-bg:#fbe3e4;
+  --f-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171c; --surface:#1a2128; --ink:#e6ebef; --ink-2:#a8b3bd; --rule:#2c363f; --accent:#6cb6d4; --accent-soft:#1d3440;
+  --pass:#6fd39f; --pass-bg:#173528; --warn:#f0c062; --warn-bg:#3a2e14; --fail:#f2858a; --fail-bg:#3d1c1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171c; --surface:#1a2128; --ink:#e6ebef; --ink-2:#a8b3bd; --rule:#2c363f; --accent:#6cb6d4; --accent-soft:#1d3440;
+  --pass:#6fd39f; --pass-bg:#173528; --warn:#f0c062; --warn-bg:#3a2e14; --fail:#f2858a; --fail-bg:#3d1c1f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.62;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:24px}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;max-height:calc(100vh - 48px);overflow:auto;font-size:14px}
+.toc p{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc a{display:block;padding:5px 10px;border-radius:6px;color:var(--ink-2);text-decoration:none;border-left:2px solid transparent}
+.toc a:hover,.toc a:focus-visible{color:var(--ink);background:var(--accent-soft);outline:none;border-left-color:var(--accent)}
+main{min-width:0}
+header.title{border-bottom:1px solid var(--rule);padding-bottom:28px;margin-bottom:8px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(30px,4.4vw,44px);line-height:1.1;letter-spacing:-.01em;margin:0 0 14px;text-wrap:balance}
+.byline{color:var(--ink-2);font-size:15px;margin:0}
+h2{font-family:var(--f-display);font-weight:600;font-size:28px;line-height:1.2;margin:60px 0 6px;text-wrap:balance;scroll-margin-top:24px}
+h2 .n{font-family:var(--f-mono);font-size:15px;color:var(--accent);font-weight:500;margin-right:10px;vertical-align:3px}
+h3{font-family:var(--f-display);font-weight:600;font-size:19px;margin:32px 0 6px;text-wrap:balance}
+p,li{max-width:72ch}
+p{margin:12px 0}
+.muted{color:var(--ink-2)}
+a{color:var(--accent)}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--accent-soft);padding:1px 5px;border-radius:4px;word-break:break-word}
+sup.ref{font-size:.72em;color:var(--accent);font-weight:500}
+.abstract{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 24px;margin:24px 0}
+.abstract h2{margin:0 0 8px;font-size:22px}
+.abstract p{margin:8px 0;max-width:none}
+.abstract b{font-family:var(--f-display);font-weight:600}
+.kw{font-size:14px;color:var(--ink-2);margin-top:12px}
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0 8px}
+@media (max-width:900px){.keys{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.key{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.key b{font-family:var(--f-display);font-size:28px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.key span{font-size:13px;color:var(--ink-2);line-height:1.4}
+figure{margin:24px 0 28px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px;min-width:0}
+figure a{display:block}
+figure img{display:block;width:100%;height:auto;border-radius:4px;background:#fff}
+figcaption{font-size:14px;color:var(--ink-2);margin-top:10px;line-height:1.5;max-width:none}
+figcaption b{color:var(--ink);font-family:var(--f-mono);font-weight:500;font-size:12.5px;letter-spacing:.03em;margin-right:6px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}
+.pair figure{margin:0}
+@media (max-width:700px){.pair{grid-template-columns:minmax(0,1fr)}}
+.tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+.tbl caption{caption-side:top;text-align:left;font-size:14px;color:var(--ink-2);padding:10px 12px 0}
+.tbl caption b{color:var(--ink);font-family:var(--f-mono);font-weight:500;font-size:12.5px;margin-right:6px}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);background:var(--bg);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num{text-align:right;white-space:nowrap}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.pass{color:var(--pass);background:var(--pass-bg)}.warn{color:var(--warn);background:var(--warn-bg)}.fail{color:var(--fail);background:var(--fail-bg)}
+ul.tight{padding-left:20px}ul.tight li{margin:6px 0}
+ol.refs{padding-left:22px;font-size:14px;color:var(--ink-2)}ol.refs li{margin:6px 0;max-width:none}
+footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;font-size:13px;color:var(--ink-2)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@page{size:A4;margin:16mm 14mm}
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#ffffff;--surface:#ffffff;--ink:#17202a;--ink-2:#4a5562;--rule:#dde2e6;--accent:#1f6f8b;--accent-soft:#e3f0f5;--pass:#1f7a4d;--pass-bg:#e2f3ea;--warn:#8a5a00;--warn-bg:#fbefd6;--fail:#a4262c;--fail-bg:#fbe3e4;color-scheme:light}
+  body{font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{display:block;max-width:none;padding:0}
+  .toc{display:none}
+  h2{margin-top:24px;break-after:avoid}
+  h3{break-after:avoid}
+  section.major{break-before:page}
+  figure,.tbl,.key,tr,.abstract{break-inside:avoid}
+  figure{margin:12px 0}
+  .pair{gap:10px;margin:12px 0}
+  .keys{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .key b{font-size:20px;white-space:nowrap}
+  a{text-decoration:none;color:inherit}
+}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Contents">
+  <p>Contents</p>
+  <ol>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#intro">1 Introduction</a></li>
+    <li><a href="#methods">2 Materials and methods</a></li>
+    <li><a href="#r-datasets">3.1 Per-dataset results</a></li>
+    <li><a href="#r-comparison">3.2 Cross-platform comparison</a></li>
+    <li><a href="#r-validation">3.3 Validation</a></li>
+    <li><a href="#r-celltype">3.4 Cell-type resolution</a></li>
+    <li><a href="#r-ml">3.5 Classifier</a></li>
+    <li><a href="#r-network">3.6 Network analysis</a></li>
+    <li><a href="#discussion">4 Discussion</a></li>
+    <li><a href="#conclusion">5 Conclusion</a></li>
+    <li><a href="#availability">Data and code</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="title">
+  <p class="eyebrow">Research report · human temporal cortex transcriptomics</p>
+  <h1>A reproducible Alzheimer’s disease transcriptomic signature across three platforms, and what it is made of</h1>
+  <p class="byline">Suraj Rathi, BTech Life Sciences</p>
+</header>
+
+<section id="abstract">
+<div class="abstract">
+<h2>Abstract</h2>
+<p><b>Background.</b> Transcriptomic studies of Alzheimer’s disease (AD) often report different gene lists depending on the technology, brain region and cohort studied. Whether a shared disease signal exists across platforms, and whether it reflects changes inside cells or changes in which cells are present, is not settled.</p>
+<p><b>Methods.</b> I analysed three human temporal-cortex datasets with platform-appropriate models: an Illumina microarray of the middle temporal gyrus (GSE132903; 97 AD, 98 controls; limma), bulk RNA-seq of the lateral temporal lobe (GSE104704; 12 AD, 10 age-matched controls; DESeq2) and donor-level pseudobulk of single-nucleus RNA-seq from the Seattle Alzheimer’s Disease Brain Cell Atlas (SEA-AD; 10 dementia, 10 controls; DESeq2). I compared fold changes across platforms, validated every result with permutation, covariate, outlier and leave-one-out tests, resolved the single-nucleus data by cell type, trained classifiers on a 31-gene panel, and studied the panel as a protein-interaction and co-expression network.</p>
+<p><b>Results.</b> Fold changes correlated positively across all dataset pairs (r = 0.26–0.41; 13,717 shared genes). Among genes significant in two datasets, 93–100% changed in the same direction (100 of 101 microarray/RNA-seq genes; 73 of 73 microarray/SEA-AD genes), far beyond chance. Neuronal and neuropeptide genes (VGF, SST, NPTX2, SNAP25) decreased and glial genes (GFAP, GJA1, VIM) increased. A classifier trained on the microarray identified AD brains in the independent RNA-seq cohort with AUC 0.90–0.95. Cell-type resolution showed that glial genes rose in tissue (median log2FC +1.68) but barely changed per cell (+0.09), as somatostatin interneurons halved and astrocytes expanded in dementia. Similarly, apparent co-expression rewiring among the panel genes (108 of 465 gene pairs) almost vanished (3 of 465) after accounting for cell composition. The neuronal repressor REST was the top predicted regulator of the down-regulated genes.</p>
+<p><b>Conclusions.</b> The AD transcriptomic signal is reproducible across microarray, bulk and single-nucleus RNA-seq and across temporal-cortex regions. Much of it is a signature of cell composition, namely neuron loss and gliosis, rather than changed expression per cell. Separating the two requires models that treat brain tissue as a mixture of interacting cell populations.</p>
+<p class="kw"><b>Keywords:</b> Alzheimer’s disease · transcriptomics · cross-platform reproducibility · single-nucleus RNA-seq · cell-type composition · machine learning · network analysis · REST</p>
+</div>
+<div class="keys">
+  <div class="key"><b>93–100%</b><span>direction agreement of genes significant in both datasets of each pair</span></div>
+  <div class="key"><b>r = 0.41</b><span>genome-wide fold-change correlation, microarray vs RNA-seq (gene-shuffle null ±0.02)</span></div>
+  <div class="key"><b>AUC 0.90–0.95</b><span>microarray-trained classifier applied unchanged to the independent RNA-seq cohort</span></div>
+  <div class="key"><b>108 → 3</b><span>gene pairs with altered co-expression in AD, before and after removing cell-composition effects</span></div>
+</div>
+</section>
+
+<section id="intro" class="major">
+<h2><span class="n">1</span>Introduction</h2>
+<p>Alzheimer’s disease is the most common cause of dementia. It is marked by amyloid plaques, tau tangles, synaptic loss and the death of specific neuronal populations, accompanied by reactive astrocytes and microglia. Gene-expression profiling of post-mortem brain has been a central tool for studying these processes, and large datasets now exist from microarrays, bulk RNA-seq and single-nucleus RNA-seq.<sup class="ref">1–4</sup></p>
+<p>Two problems limit how these data can be interpreted. First, studies disagree. Differentially expressed gene lists from different technologies, brain regions and cohorts often overlap only partly, which raises the question of whether a shared AD signal exists at all or whether each study mainly reflects its own platform. Second, bulk tissue is a mixture. When neurons die and glia proliferate, the expression of every neuron- or glia-specific gene shifts in bulk measurements even if no cell changes its own expression. A tissue-level signature can therefore look like gene regulation when it is in fact a change in cell composition. Single-nucleus atlases such as SEA-AD now make it possible to test this directly.<sup class="ref">3,4</sup></p>
+<p>This project addresses both problems with three datasets from the human temporal cortex, a region affected early in AD, measured with three different technologies. It had four aims:</p>
+<ul class="tight">
+<li><b>Reproducibility:</b> test whether AD-associated expression changes agree in direction and magnitude across microarray, bulk RNA-seq and single-nucleus RNA-seq, and validate that agreement against explicit null models.</li>
+<li><b>Composition vs regulation:</b> use cell-type-resolved single-nucleus data to separate changes in cell proportions from changes in expression within cells.</li>
+<li><b>Transferability:</b> test whether a classifier trained on one platform can identify AD tissue on another without retraining.</li>
+<li><b>Systems view:</b> analyse a panel of core genes as a network, asking which genes hold it together, whether its co-expression structure changes in AD, and which transcription factors may regulate it.</li>
+</ul>
+</section>
+
+<section id="methods" class="major">
+<h2><span class="n">2</span>Materials and methods</h2>
+<h3>2.1 Datasets</h3>
+<div class="tbl"><table>
+<caption><b>Table 1</b>Datasets analysed. Positive log2 fold change (log2FC) means higher in AD in every dataset.</caption>
+<thead><tr><th>Dataset</th><th>Technology</th><th>Region</th><th>AD / control</th><th>Expression input</th></tr></thead>
+<tbody>
+<tr><td>GSE132903<sup class="ref">1</sup></td><td>Illumina HumanHT-12 v4 microarray</td><td>Middle temporal gyrus</td><td class="num">97 / 98</td><td>log2 intensities</td></tr>
+<tr><td>GSE104704<sup class="ref">2</sup></td><td>Bulk RNA-seq</td><td>Lateral temporal lobe</td><td class="num">12 / 10</td><td>raw gene counts</td></tr>
+<tr><td>SEA-AD<sup class="ref">3</sup></td><td>Single-nucleus RNA-seq</td><td>Middle temporal gyrus</td><td class="num">10 / 10</td><td>raw UMI counts per nucleus</td></tr>
+</tbody></table></div>
+<p>RNA-seq controls were the age-matched “Old” group; the young group was excluded. GEO provides GSE104704 only as size-factor-normalised values. Because every value in a sample equals an integer count divided by the same size factor, dividing each sample by its smallest non-zero value recovered the raw integer counts exactly (maximum deviation 2 × 10⁻⁹). For SEA-AD, 20 donors were grouped by cognitive status (dementia vs no dementia). Raw UMIs from <code>layers["UMIs"]</code> were summed over all nuclei of each donor to form a whole-tissue pseudobulk.</p>
+<h3>2.2 Differential expression</h3>
+<p>Microarray probes were mapped to genes with <code>illuminaHumanv4.db</code>, keeping the probe with the highest mean intensity per gene (a choice independent of the AD/control comparison). Expression was modelled with limma (<code>~ condition</code>, control as the explicit reference level).<sup class="ref">5</sup> RNA-seq and SEA-AD counts were analysed with DESeq2 (<code>~ condition</code>, control as reference), and fold changes were shrunk with apeglm.<sup class="ref">6,7</sup> Genes were called significant at Benjamini–Hochberg adjusted p (padj) &lt; 0.05 and |log2FC| &gt; 0.5.</p>
+<h3>2.3 Cross-platform comparison</h3>
+<p>Results were merged by gene symbol. For each dataset pair I computed the Pearson correlation of log2FC over all shared genes and over genes significant in both, and the fraction of genes significant in both that changed in the same direction. A 33-gene candidate panel of neuronal, neuropeptide and glial genes, consistently changed across the datasets (31 measured on the microarray; CAMK2A and PENK have no probe), was used for focused analyses.</p>
+<h3>2.4 Validation</h3>
+<p>Each dataset was checked for label correctness, contrast direction (known AD markers), covariate balance (age, sex), covariate-adjusted models, p-value calibration, label-permutation nulls (200 for microarray, 20 for the sequencing datasets), principal-component outliers, split-half reproducibility and leave-one-sample-out influence. The comparison was tested against hypergeometric and binomial nulls, a gene-shuffle null (1,000 shuffles), bootstrap confidence intervals and removal of the most influential samples. Panel selection bias was assessed by comparing the panel with random gene sets. Every check had a pre-set PASS / WARN / FAIL rule.</p>
+<h3>2.5 Cell-type-resolved pseudobulk</h3>
+<p>SEA-AD subclasses were grouped into 10 classes (excitatory IT, deep-layer excitatory, Pvalb/Chandelier, Sst/Sst Chodl, Vip/Lamp5/Sncg/Pax6, astrocytes, microglia/immune, oligodendrocytes, OPCs, vascular cells). Raw UMIs were summed per donor within each class, and summing the classes back reproduced the whole-tissue pseudobulk exactly. Each class with at least 4 donors per group (≥ 20 nuclei each) was analysed with DESeq2 and apeglm, a 20-shuffle permutation null, and a refit without the two donors with the most glia-heavy sampling.</p>
+<h3>2.6 Classifier</h3>
+<p>L2-regularised logistic regression (glmnet, λ by inner cross-validation) and random forests (500 trees) were trained on the 31 panel genes in the microarray.<sup class="ref">8,9</sup> Each gene was z-scored within its own dataset, a label-free step that makes microarray intensities and sequencing counts comparable. Performance was estimated by leave-one-out cross-validation (LOO-CV), with scaling fitted inside each fold. A decision threshold giving ≥ 0.85 sensitivity was fixed on the LOO predictions. The final models and threshold were then applied without change to RNA-seq and SEA-AD. AUCs were computed with pROC.<sup class="ref">10</sup> A learning curve used stratified subsamples of 20–100% of the microarray (10 repeats each).</p>
+<h3>2.7 Network analysis</h3>
+<p>Functional-association edges among the panel genes were taken from STRING v12.5 (combined score ≥ 0.4).<sup class="ref">11</sup> Hubs were ranked by degree, betweenness and eigenvector centrality. Modularity was compared with 1,000 degree-preserving rewirings, communities were detected with Louvain,<sup class="ref">12</sup> bridging was measured by the participation coefficient,<sup class="ref">13</sup> and robustness by random vs targeted node removal.<sup class="ref">14</sup> Differential co-expression compared Spearman networks in AD and controls: per-gene connectivity change Δk with 2,000 label permutations, and per-edge Fisher z-tests. It was repeated after regressing out marker-based proxies for neuron, astrocyte, microglia, oligodendrocyte and Sst-interneuron abundance. Signed WGCNA was run on the 5,000 most variable microarray genes plus the panel.<sup class="ref">15</sup> Module coherence was compared with 2,000 expression-matched random gene sets. Transcription-factor enrichment used TRRUST v2 with one-sided Fisher’s exact tests.<sup class="ref">16</sup></p>
+<h3>2.8 Software</h3>
+<p>Analyses used R 4.4 (limma, DESeq2, apeglm, WGCNA, glmnet, randomForest, pROC, hdf5r, ggplot2) and Python 3 (pandas, SciPy, statsmodels, NetworkX, scikit-learn, matplotlib). Random seeds were fixed and every script records its session information.</p>
+</section>
+
+<section id="r-datasets" class="major">
+<h2><span class="n">3</span>Results</h2>
+<h3>3.1 Each dataset shows neuronal loss and glial gain</h3>
+<div class="tbl"><table>
+<caption><b>Table 2</b>Differential expression in each dataset (padj &lt; 0.05, |log2FC| &gt; 0.5).</caption>
+<thead><tr><th>Dataset</th><th>Genes tested</th><th>Significant</th><th>Up</th><th>Down</th></tr></thead>
+<tbody>
+<tr><td>Microarray (GSE132903)</td><td class="num">19,743</td><td class="num">724</td><td class="num">331</td><td class="num">393</td></tr>
+<tr><td>RNA-seq (GSE104704)</td><td class="num">17,804</td><td class="num">857</td><td class="num">417</td><td class="num">440</td></tr>
+<tr><td>SEA-AD pseudobulk</td><td class="num">31,828</td><td class="num">1,436</td><td class="num">1,270</td><td class="num">166</td></tr>
+</tbody></table></div>
+<p>In the microarray, all canonical AD markers changed in the expected direction: VGF −1.23, NPTX2 −1.08, SST −0.81 and BDNF −0.57 decreased, while GFAP +1.05, CD44 +0.67 and SERPINA3 +0.69 increased (all padj &lt; 0.01). In RNA-seq, VGF was the most significant gene (−2.37) and all ten neuronal markers decreased. The glial increase was weaker in this small cohort (GFAP +0.45, not significant).</p>
+<div class="pair">
+<figure><a href="figures/d1_volcano.png" target="_blank" rel="noopener"><img src="figures/d1_volcano.png" alt="Microarray volcano plot" loading="lazy"></a><figcaption><b>Figure 1</b>Microarray volcano plot. The 10 most significant genes are labelled.</figcaption></figure>
+<figure><a href="figures/d1_heatmap.png" target="_blank" rel="noopener"><img src="figures/d1_heatmap.png" alt="Microarray heatmap of the 33-gene panel" loading="lazy"></a><figcaption><b>Figure 2</b>The panel across 195 microarray samples (z-score per gene). Neuronal genes are high in controls and low in AD; glial genes the reverse.</figcaption></figure>
+</div>
+<div class="pair">
+<figure><a href="figures/d2_volcano.png" target="_blank" rel="noopener"><img src="figures/d2_volcano.png" alt="RNA-seq volcano plot" loading="lazy"></a><figcaption><b>Figure 3</b>RNA-seq volcano plot (apeglm-shrunk fold changes).</figcaption></figure>
+<figure><a href="figures/d2_heatmap.png" target="_blank" rel="noopener"><img src="figures/d2_heatmap.png" alt="RNA-seq heatmap of the 33-gene panel" loading="lazy"></a><figcaption><b>Figure 4</b>The panel across 22 RNA-seq samples.</figcaption></figure>
+</div>
+<p>The SEA-AD whole-tissue result was shaped by which cells each donor contributed. Dementia donors yielded fewer nuclei with relatively more astrocytes. In donor H20.33.038 only 26% of nuclei were neurons (Figure 5). Up-regulated genes dominated, and the most significant genes were mostly non-coding and vascular transcripts. Only VIM and GJA1 among the panel genes reached significance.</p>
+<figure><a href="figures/d3_fig5_celltype_composition.png" target="_blank" rel="noopener"><img src="figures/d3_fig5_celltype_composition.png" alt="Cell-type composition per SEA-AD donor" loading="lazy"></a><figcaption><b>Figure 5</b>Cell-type composition of each SEA-AD donor, with total nuclei above each bar.</figcaption></figure>
+<div class="pair">
+<figure><a href="figures/d3_fig1_volcano.png" target="_blank" rel="noopener"><img src="figures/d3_fig1_volcano.png" alt="SEA-AD volcano plot" loading="lazy"></a><figcaption><b>Figure 6</b>SEA-AD whole-tissue volcano plot.</figcaption></figure>
+<figure><a href="figures/d3_fig4_33gene_heatmap.png" target="_blank" rel="noopener"><img src="figures/d3_fig4_33gene_heatmap.png" alt="SEA-AD heatmap of the 33-gene panel" loading="lazy"></a><figcaption><b>Figure 7</b>The panel across SEA-AD donors. The glia-heavy donor H20.33.038 shows low values for every neuronal gene.</figcaption></figure>
+</div>
+</section>
+
+<section id="r-comparison" class="major">
+<h3>3.2 The direction of change agrees across platforms</h3>
+<p>13,717 genes were measured in all three datasets. Fold changes correlated positively in every pair, and genes significant in both datasets of a pair almost always changed in the same direction (Table 3).</p>
+<div class="tbl"><table>
+<caption><b>Table 3</b>Pairwise agreement of AD fold changes.</caption>
+<thead><tr><th>Pair</th><th>r, all genes</th><th>r, significant in both</th><th>Significant in both</th><th>Same direction</th></tr></thead>
+<tbody>
+<tr><td>Microarray vs RNA-seq</td><td class="num">0.414</td><td class="num">0.888</td><td class="num">101</td><td class="num">100 (99.0%)</td></tr>
+<tr><td>Microarray vs SEA-AD</td><td class="num">0.289</td><td class="num">0.710</td><td class="num">73</td><td class="num">73 (100%)</td></tr>
+<tr><td>RNA-seq vs SEA-AD</td><td class="num">0.258</td><td class="num">0.718</td><td class="num">60</td><td class="num">56 (93.3%)</td></tr>
+</tbody></table></div>
+<figure><a href="figures/cmp_fig1_scatter_micro_vs_rnaseq.png" target="_blank" rel="noopener"><img src="figures/cmp_fig1_scatter_micro_vs_rnaseq.png" alt="Microarray vs RNA-seq fold-change scatter" loading="lazy"></a><figcaption><b>Figure 8</b>Microarray vs RNA-seq fold changes. Red = up in both, blue = down in both, black = opposite; panel genes circled.</figcaption></figure>
+<div class="pair">
+<figure><a href="figures/cmp_fig2_scatter_micro_vs_seaad.png" target="_blank" rel="noopener"><img src="figures/cmp_fig2_scatter_micro_vs_seaad.png" alt="Microarray vs SEA-AD scatter" loading="lazy"></a><figcaption><b>Figure 9</b>Microarray vs SEA-AD.</figcaption></figure>
+<figure><a href="figures/cmp_fig3_scatter_rnaseq_vs_seaad.png" target="_blank" rel="noopener"><img src="figures/cmp_fig3_scatter_rnaseq_vs_seaad.png" alt="RNA-seq vs SEA-AD scatter" loading="lazy"></a><figcaption><b>Figure 10</b>RNA-seq vs SEA-AD.</figcaption></figure>
+</div>
+<div class="pair">
+<figure><a href="figures/cmp_fig4_direction_agreement_bars.png" target="_blank" rel="noopener"><img src="figures/cmp_fig4_direction_agreement_bars.png" alt="Direction agreement" loading="lazy"></a><figcaption><b>Figure 11</b>Genes significant in both datasets of each pair: same direction (solid) vs opposite (hatched).</figcaption></figure>
+<figure><a href="figures/cmp_fig5_33gene_heatmap.png" target="_blank" rel="noopener"><img src="figures/cmp_fig5_33gene_heatmap.png" alt="Panel fold-change heatmap across datasets" loading="lazy"></a><figcaption><b>Figure 12</b>Panel fold changes per dataset. 29 of 31 genes measured everywhere change in the same direction in all three.</figcaption></figure>
+</div>
+<figure><a href="figures/cmp_fig6_upset_plot.png" target="_blank" rel="noopener"><img src="figures/cmp_fig6_upset_plot.png" alt="UpSet plot of significant genes" loading="lazy"></a><figcaption><b>Figure 13</b>Overlap of significant genes. Thirteen genes are significant in all three datasets, including BDNF and RGS4.</figcaption></figure>
+</section>
+
+<section id="r-validation" class="major">
+<h3>3.3 Validation separates robust from fragile results</h3>
+<div class="tbl"><table>
+<caption><b>Table 4</b>Summary of validation checks.</caption>
+<thead><tr><th>Component</th><th>Pass</th><th>Warn</th><th>Fail</th><th>Main finding</th></tr></thead>
+<tbody>
+<tr><td>Microarray</td><td class="num"><span class="chip pass">11</span></td><td class="num">0</td><td class="num">0</td><td>Shuffled labels yield no comparable DEG set (0/200). Split halves agree at r = 0.94. Age and sex adjustment changes nothing.</td></tr>
+<tr><td>RNA-seq</td><td class="num"><span class="chip pass">8</span></td><td class="num"><span class="chip warn">3</span></td><td class="num">0</td><td>Minor library-size difference and one mild outlier. Leave-one-out fold changes r ≥ 0.96.</td></tr>
+<tr><td>SEA-AD whole tissue</td><td class="num"><span class="chip pass">9</span></td><td class="num"><span class="chip warn">4</span></td><td class="num"><span class="chip fail">1</span></td><td>DEG count not above chance (permutation p = 0.14). Fold changes track neuronal fraction (rho = −0.83).</td></tr>
+<tr><td>SEA-AD by cell type</td><td class="num"><span class="chip pass">4</span></td><td class="num"><span class="chip warn">3</span></td><td class="num"><span class="chip fail">3</span></td><td>7 of 10 cell types beat the permutation null. Gene identities depend on two donors.</td></tr>
+<tr><td>Comparison</td><td class="num"><span class="chip pass">16</span></td><td class="num"><span class="chip warn">1</span></td><td class="num">0</td><td>Overlaps 2.3–3.4× above chance. Gene-shuffle null r ≈ ±0.015. Robust to removing influential samples.</td></tr>
+</tbody></table></div>
+<div class="pair">
+<figure><a href="figures/val_pvalue_histograms.png" target="_blank" rel="noopener"><img src="figures/val_pvalue_histograms.png" alt="p-value histograms" loading="lazy"></a><figcaption><b>Figure 14</b>p-value distributions: flat right tails and strong low-p spikes indicate well-calibrated tests.</figcaption></figure>
+<figure><a href="figures/val_permutation_null.png" target="_blank" rel="noopener"><img src="figures/val_permutation_null.png" alt="Permutation null distributions" loading="lazy"></a><figcaption><b>Figure 15</b>DEGs with shuffled labels (grey) vs observed (red).</figcaption></figure>
+</div>
+<div class="pair">
+<figure><a href="figures/val_leave_one_out.png" target="_blank" rel="noopener"><img src="figures/val_leave_one_out.png" alt="Leave-one-out sensitivity" loading="lazy"></a><figcaption><b>Figure 16</b>Leave-one-sample-out: fold changes stay stable, but SEA-AD DEG counts vary widely.</figcaption></figure>
+<figure><a href="figures/val_panel_circularity.png" target="_blank" rel="noopener"><img src="figures/val_panel_circularity.png" alt="Panel selection check" loading="lazy"></a><figcaption><b>Figure 17</b>Random significant microarray genes are 79% direction-consistent; the panel is 94% (p = 0.024).</figcaption></figure>
+</div>
+<p>The agreement in direction across platforms is therefore robust. The SEA-AD whole-tissue gene list is not, and the panel’s consistency mostly reflects the general replication of significant genes rather than anything specific to the panel.</p>
+</section>
+
+<section id="r-celltype" class="major">
+<h3>3.4 Much of the signature is cell composition</h3>
+<p>Within each cell type, glial genes barely changed even though they rose strongly in tissue: GFAP +1.33 in tissue vs +0.03 in astrocytes, VIM +2.04 vs −0.04, GJA1 +2.73 vs +0.43, TREM2 +1.22 vs +0.14 in microglia. SST fell −1.46 in tissue but only −0.35 inside Sst neurons. In contrast, CARTPT (−1.14), NPTX2 (−0.74) and CHGB (−0.57) fell about as much inside excitatory neurons as in tissue, which marks them as candidate cell-intrinsic changes (not significant with 10 donors per group). Composition itself shifted: in dementia, Sst interneurons halved (p = 0.002), Pvalb neurons decreased (p = 0.03) and astrocytes increased about 2.8-fold (p = 0.03).</p>
+<figure><a href="figures/ct_fig4_tissue_vs_celltype.png" target="_blank" rel="noopener"><img src="figures/ct_fig4_tissue_vs_celltype.png" alt="Whole tissue vs within cell type fold changes" loading="lazy"></a><figcaption><b>Figure 18</b>Fold change in whole tissue (grey) vs inside the cell type that expresses each gene (blue).</figcaption></figure>
+<div class="pair">
+<figure><a href="figures/ct_fig1_DEGs_per_celltype.png" target="_blank" rel="noopener"><img src="figures/ct_fig1_DEGs_per_celltype.png" alt="DEGs per cell type" loading="lazy"></a><figcaption><b>Figure 19</b>DEGs per cell type with permutation p-values (0.048 is the best possible with 20 shuffles).</figcaption></figure>
+<figure><a href="figures/ct_fig3_concordance_with_bulk.png" target="_blank" rel="noopener"><img src="figures/ct_fig3_concordance_with_bulk.png" alt="Concordance of cell-type changes with bulk datasets" loading="lazy"></a><figcaption><b>Figure 20</b>Whole-tissue SEA-AD matches the bulk datasets (rho 0.33–0.38) better than any single cell type does (≤ 0.22).</figcaption></figure>
+</div>
+</section>
+
+<section id="r-ml" class="major">
+<h3>3.5 A classifier transfers across platforms</h3>
+<div class="tbl"><table>
+<caption><b>Table 5</b>Classifier performance. Sensitivity and specificity at the threshold fixed on microarray LOO-CV.</caption>
+<thead><tr><th>Dataset</th><th>Model</th><th>AUC [95% CI]</th><th>Sensitivity</th><th>Specificity</th></tr></thead>
+<tbody>
+<tr><td>Microarray, LOO-CV (n = 195)</td><td>Logistic L2</td><td class="num">0.87 [0.82–0.92]</td><td class="num">0.86</td><td class="num">0.72</td></tr>
+<tr><td></td><td>Random forest</td><td class="num">0.86 [0.81–0.91]</td><td class="num">0.86</td><td class="num">0.74</td></tr>
+<tr><td>RNA-seq, independent (n = 22)</td><td>Logistic L2</td><td class="num">0.90 [0.77–1.00]</td><td class="num">0.92</td><td class="num">0.70</td></tr>
+<tr><td></td><td>Random forest</td><td class="num">0.95 [0.86–1.00]</td><td class="num">0.92</td><td class="num">0.60</td></tr>
+<tr><td>SEA-AD, independent (n = 20)</td><td>Logistic L2</td><td class="num">0.63 [0.36–0.90]</td><td class="num">0.90</td><td class="num">0.50</td></tr>
+<tr><td></td><td>Random forest</td><td class="num">0.63 [0.37–0.89]</td><td class="num">0.50</td><td class="num">0.50</td></tr>
+</tbody></table></div>
+<figure><a href="figures/ml_fig1_roc_curves.png" target="_blank" rel="noopener"><img src="figures/ml_fig1_roc_curves.png" alt="ROC curves" loading="lazy"></a><figcaption><b>Figure 21</b>ROC curves. The microarray-trained model transfers to RNA-seq but not to SEA-AD.</figcaption></figure>
+<div class="pair">
+<figure><a href="figures/ml_fig2_learning_curve.png" target="_blank" rel="noopener"><img src="figures/ml_fig2_learning_curve.png" alt="Learning curve" loading="lazy"></a><figcaption><b>Figure 22</b>Learning curve. Performance levels off near AUC 0.86 at about 120 samples.</figcaption></figure>
+<figure><a href="figures/ml_fig4_confusion_matrices.png" target="_blank" rel="noopener"><img src="figures/ml_fig4_confusion_matrices.png" alt="Confusion matrices" loading="lazy"></a><figcaption><b>Figure 23</b>Confusion matrices at the fixed threshold.</figcaption></figure>
+</div>
+<figure><a href="figures/ml_fig3_feature_importance.png" target="_blank" rel="noopener"><img src="figures/ml_fig3_feature_importance.png" alt="Feature importance" loading="lazy"></a><figcaption><b>Figure 24</b>Most informative genes. VGF and GFAP rank high in both models.</figcaption></figure>
+</section>
+
+<section id="r-network" class="major">
+<h3>3.6 The gene network: modular, hub-dependent and composition-driven</h3>
+<p>The panel formed a STRING network of 131 edges with strong modularity (Q = 0.23 vs −0.02 ± 0.03 for random graphs, z = 8.6). The top hubs were SNAP25, GFAP, NEFL, SST and CAMK2A, and the first four kept their rank using experimental and database evidence alone. Removing the highest-betweenness genes broke the network apart after 7 removals, compared with about 15 for random removal.</p>
+<figure><a href="figures/net_fig1_network.png" target="_blank" rel="noopener"><img src="figures/net_fig1_network.png" alt="STRING network of the panel" loading="lazy"></a><figcaption><b>Figure 25</b>STRING network grouped by module. Node size = degree; colour = consensus AD fold change.</figcaption></figure>
+<p>In the microarray, co-expression among panel genes changed for 108 of 465 gene pairs in AD, mostly neuronal genes becoming more tightly coupled. After the neuron and Sst-interneuron abundance proxies, both strongly reduced in AD (p &lt; 10⁻⁴), were regressed out, only 3 pairs changed and no gene’s connectivity change survived FDR correction (Figure 26). Unsupervised WGCNA placed the neuronal genes in three modules that decrease in AD (r = −0.38 to −0.41) and the glial genes in modules that increase (strongest r = +0.51). The data therefore support one neuronal axis set against a glial axis rather than three independent modules (Figure 27).</p>
+<figure><a href="figures/net_fig2_differential_network.png" target="_blank" rel="noopener"><img src="figures/net_fig2_differential_network.png" alt="Differential co-expression network" loading="lazy"></a><figcaption><b>Figure 26</b>Co-expression change in AD on network edges, before (left) and after (right) removing cell-abundance effects.</figcaption></figure>
+<figure><a href="figures/net_fig3_modules.png" target="_blank" rel="noopener"><img src="figures/net_fig3_modules.png" alt="Module coherence and WGCNA" loading="lazy"></a><figcaption><b>Figure 27</b>Module coherence against matched random gene sets, between-module correlation and WGCNA module membership.</figcaption></figure>
+<p>TRRUST enrichment identified the neuronal repressor REST as the top regulator of the panel (targets VGF, CHGB, TAC1, CARTPT; FDR 3 × 10⁻⁴) and of the genes consistently down in AD (adding BDNF, PCSK1, TUBB3; FDR 2 × 10⁻⁵). REST expression was higher in AD in all three datasets: microarray +0.15 (padj 2 × 10⁻⁶), RNA-seq +0.16 and SEA-AD +0.96 (not significant).</p>
+<div class="pair">
+<figure><a href="figures/net_fig5_tf_network.png" target="_blank" rel="noopener"><img src="figures/net_fig5_tf_network.png" alt="TRRUST regulators" loading="lazy"></a><figcaption><b>Figure 28</b>Transcription factors enriched among the panel genes.</figcaption></figure>
+<figure><a href="figures/net_fig6_robustness.png" target="_blank" rel="noopener"><img src="figures/net_fig6_robustness.png" alt="Network robustness" loading="lazy"></a><figcaption><b>Figure 29</b>Random vs targeted gene removal, and hub degree under stricter evidence.</figcaption></figure>
+</div>
+<figure><a href="figures/net_fig4_celltype.png" target="_blank" rel="noopener"><img src="figures/net_fig4_celltype.png" alt="Cell-type specificity of the panel" loading="lazy"></a><figcaption><b>Figure 30</b>Where the panel genes are expressed, how cell composition shifts in dementia, and tissue vs within-cell change.</figcaption></figure>
+</section>
+
+<section id="discussion" class="major">
+<h2><span class="n">4</span>Discussion</h2>
+<p>This project shows that Alzheimer’s disease leaves a reproducible transcriptomic signature in the human temporal cortex. Three technologies, two cortical regions and three cohorts agree on its direction: neuronal and neuropeptide genes decrease and glial genes increase. The agreement is far stronger than chance, survives covariate adjustment and sample removal, and lets a classifier trained on microarrays identify AD tissue in an independent RNA-seq cohort.</p>
+<p>The second finding explains why the signature is so reproducible. Much of it is a signature of cell composition. When single-nucleus data were resolved by cell type, the large tissue-level rise in glial genes almost disappeared inside astrocytes and microglia, and the fall in SST was mostly explained by the loss of Sst interneurons. The network analysis led to the same conclusion independently: extensive apparent rewiring of co-expression in AD vanished once neuron and interneuron abundance were taken into account. Neuron loss and gliosis are central features of AD pathology, so this is real disease biology. It is, however, a different claim from saying that AD changes how individual cells regulate these genes.</p>
+<p>A smaller set of genes points to cell-intrinsic change. CARTPT, NPTX2 and CHGB decreased inside excitatory neurons by about as much as in tissue. NPTX2 has been linked to synaptic dysfunction and cognitive decline in AD, and the enrichment of REST targets among the down-regulated genes suggests a possible regulatory mechanism. REST protects ageing neurons and is reported to be lost from the nucleus in AD,<sup class="ref">17</sup> so the higher REST mRNA seen here should be treated as a hypothesis to test rather than a mechanism.</p>
+<h3>Limitations</h3>
+<ul class="tight">
+<li><b>Panel selection.</b> The 33-gene panel was chosen for consistency across these same datasets. Its consistency and the RNA-seq classifier result are therefore optimistic, and an independent fourth cohort is needed for a clean test.</li>
+<li><b>Sample size.</b> RNA-seq (n = 22) and SEA-AD (n = 20) are small. SEA-AD whole-tissue and per-cell-type gene lists did not pass all validation tests and are reported as exploratory.</li>
+<li><b>Region and labels.</b> The RNA-seq cohort sampled the lateral temporal lobe rather than the middle temporal gyrus. SEA-AD groups are defined by cognitive status, and half of its controls carry intermediate or high AD pathology.</li>
+<li><b>Tissue type.</b> All samples are post-mortem brain. The classifier separates AD from control tissue and is not a diagnostic test for living patients.</li>
+<li><b>Network evidence.</b> STRING includes text-mining evidence, which favours well-studied genes.</li>
+</ul>
+<h3>Future work</h3>
+<ul class="tight">
+<li>Validate the signature and classifier in an independent cohort (for example GSE5281 or ROSMAP), with genes selected from a single training dataset.</li>
+<li>Extend the cell-type analysis to the full SEA-AD cohort to give per-cell changes adequate power.</li>
+<li>Estimate cell proportions in the bulk datasets by deconvolution and model composition and regulation jointly.</li>
+</ul>
+</section>
+
+<section id="conclusion">
+<h2><span class="n">5</span>Conclusion</h2>
+<p>Alzheimer’s disease produces a transcriptomic signature in the temporal cortex that replicates across microarray, bulk RNA-seq and single-nucleus RNA-seq. Much of this signature is the footprint of a changing cell population: neurons, especially somatostatin interneurons, are lost and glia expand. A smaller set of neuronal genes, possibly under REST control, shows signs of change within cells. Treating brain tissue as a mixture of interacting cell populations, rather than as a single expression profile, is necessary to tell these two processes apart.</p>
+</section>
+
+<section id="availability">
+<h2>Data and code availability</h2>
+<p>Microarray and bulk RNA-seq data are available from NCBI GEO (GSE132903, GSE104704). Single-nucleus data are from the Seattle Alzheimer’s Disease Brain Cell Atlas. Interaction and regulatory data are from STRING v12.5 and TRRUST v2. All analysis scripts are in the project directory: differential expression, comparison, validation, cell-type and classifier scripts in <code>analysis/</code>, and network scripts in <code>network/</code>.</p>
+</section>
+
+<section id="refs">
+<h2>References</h2>
+<ol class="refs">
+<li>Piras IS, et al. Transcriptome changes in the Alzheimer’s disease middle temporal gyrus: importance of RNA metabolism and mitochondria-associated membrane genes. <i>J Alzheimers Dis</i> 70, 691–713 (2019).</li>
+<li>Nativio R, et al. Dysregulation of the epigenetic landscape of normal aging in Alzheimer’s disease. <i>Nat Neurosci</i> 21, 497–505 (2018).</li>
+<li>Gabitto MI, et al. Integrated multimodal cell atlas of Alzheimer’s disease. <i>Nat Neurosci</i> 27, 2366–2383 (2024).</li>
+<li>Mathys H, et al. Single-cell transcriptomic analysis of Alzheimer’s disease. <i>Nature</i> 570, 332–337 (2019).</li>
+<li>Ritchie ME, et al. limma powers differential expression analyses for RNA-sequencing and microarray studies. <i>Nucleic Acids Res</i> 43, e47 (2015).</li>
+<li>Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <i>Genome Biol</i> 15, 550 (2014).</li>
+<li>Zhu A, Ibrahim JG, Love MI. Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences. <i>Bioinformatics</i> 35, 2084–2092 (2019).</li>
+<li>Friedman J, Hastie T, Tibshirani R. Regularization paths for generalized linear models via coordinate descent. <i>J Stat Softw</i> 33, 1–22 (2010).</li>
+<li>Breiman L. Random forests. <i>Mach Learn</i> 45, 5–32 (2001).</li>
+<li>Robin X, et al. pROC: an open-source package for R and S+ to analyze and compare ROC curves. <i>BMC Bioinformatics</i> 12, 77 (2011).</li>
+<li>Szklarczyk D, et al. The STRING database in 2023: protein–protein association networks and functional enrichment analyses for any sequenced genome of interest. <i>Nucleic Acids Res</i> 51, D638–D646 (2023).</li>
+<li>Blondel VD, et al. Fast unfolding of communities in large networks. <i>J Stat Mech</i> P10008 (2008).</li>
+<li>Guimerà R, Amaral LAN. Functional cartography of complex metabolic networks. <i>Nature</i> 433, 895–900 (2005).</li>
+<li>Albert R, Jeong H, Barabási A-L. Error and attack tolerance of complex networks. <i>Nature</i> 406, 378–382 (2000).</li>
+<li>Langfelder P, Horvath S. WGCNA: an R package for weighted correlation network analysis. <i>BMC Bioinformatics</i> 9, 559 (2008).</li>
+<li>Han H, et al. TRRUST v2: an expanded reference database of human and mouse transcriptional regulatory interactions. <i>Nucleic Acids Res</i> 46, D380–D386 (2018).</li>
+<li>Lu T, et al. REST and stress resistance in ageing and Alzheimer’s disease. <i>Nature</i> 507, 448–454 (2014).</li>
+</ol>
+</section>
+
+<footer>Suraj Rathi, BTech Life Sciences · Research report</footer>
+</main>
+</div>

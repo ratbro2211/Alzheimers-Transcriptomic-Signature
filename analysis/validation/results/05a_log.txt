@@ -1,0 +1,12 @@
+[PASS] V1   Title-derived labels match GEO 'diagnosis' field 100% (AD 97 / ND 98)  
+[PASS] V2   Canonical AD markers in expected direction       14/14 (binomial p = 1.2e-04)  tests that log2FC = AD - control, not reversed
+[PASS] V3a  Age balanced between AD and ND                   median AD 86 vs ND 85, p = 0.89  ages 90+ coded as 90
+[PASS] V3b  Sex balanced between AD and ND                   female AD 49% vs ND 49%, p = 1.00  
+[PASS] V4   Age + sex adjustment changes little              r(log2FC) = 1.000; DEGs 724 -> 724; Jaccard 1.00  
+[PASS] V5   p-value histogram: uniform tail + low-p spike    pi0 = 0.28; tail ratio (p>0.9 vs 0.5-0.6) = 0.99  pi0 = estimated fraction of unchanged genes
+[PASS] V6   Label-permutation null: DEGs under shuffled labels observed 724; null median 0, max 5; 0/200 perms >= observed; empirical p = 0.005  FAIL if empirical p > 0.05; WARN if any permutation reaches 50% of observed
+[INFO] V7a  PCA: condition captured on leading PCs           PC1 49% var; condition p on PC1-5: 3e-11, 9e-01, 2e-04, 1e-04, 4e-03  
+[PASS] V7b  PCA: sex/age not dominating PC1-2                sex p PC1/PC2 = 0.33/0.085; age p = 0.16/0.086  
+[PASS] V7c  Outlier samples (Mahalanobis on PC1-5, p<0.001)  0:   
+[PASS] V8   Split-half reproducibility of log2FC (50 splits) median r = 0.94 (range 0.84-0.97)  internal consistency of the AD signal
+[PASS] V9   Probe choice: highest-mean vs most-significant probe r = 0.960; DEGs 724 vs 761 (+5% with best-p probe)  most-significant-probe selection inflates DEG counts; highest-mean is unbiased

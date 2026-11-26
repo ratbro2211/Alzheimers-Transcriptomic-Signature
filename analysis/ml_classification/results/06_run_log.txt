@@ -1,0 +1,153 @@
+Panel: 33 genes listed, 31 measured in all three datasets; excluded: CAMK2A, PENK
+Features used: 31 genes
+Microarray 195 (AD 97 / ND 98) | RNA-seq 22 (AD 12 / ctrl 10) | SEA-AD 20 (AD 10 / ctrl 10)
+
+== Step 2: LOO-CV on microarray ==
+         model                rule   AUC AUC_CI_low AUC_CI_high AUC_wilcox_p threshold sensitivity specificity balanced_accuracy TP FN TN FP
+ Logistic (L2) sensitivity >= 0.85 0.869      0.819       0.919      5.1e-19     0.390       0.856       0.724             0.790 83 14 71 27
+ Logistic (L2)       threshold 0.5 0.869      0.819       0.919      5.1e-19     0.500       0.784       0.796             0.790 76 21 78 20
+ Random forest sensitivity >= 0.85 0.864      0.814       0.914      1.7e-18     0.424       0.856       0.745             0.800 83 14 73 25
+ Random forest       threshold 0.5 0.864      0.814       0.914      1.7e-18     0.500       0.773       0.786             0.779 75 22 77 21
+
+== Step 3: train on all microarray, predict RNA-seq and SEA-AD (frozen model + threshold) ==
+             dataset         model                                       rule  AUC AUC_CI_low AUC_CI_high AUC_wilcox_p threshold sensitivity specificity balanced_accuracy TP FN TN FP
+ RNA-seq (GSE104704) Logistic (L2) frozen microarray threshold (sens >= 0.85) 0.90      0.772       1.000      0.00083     0.390       0.917         0.7             0.808 11  1  7  3
+ RNA-seq (GSE104704) Logistic (L2)                              threshold 0.5 0.90      0.772       1.000      0.00083     0.500       0.750         0.8             0.775  9  3  8  2
+ RNA-seq (GSE104704) Random forest frozen microarray threshold (sens >= 0.85) 0.95      0.861       1.000      0.00041     0.424       0.917         0.6             0.758 11  1  6  4
+ RNA-seq (GSE104704) Random forest                              threshold 0.5 0.95      0.861       1.000      0.00041     0.500       0.917         0.9             0.908 11  1  9  1
+   SEA-AD pseudobulk Logistic (L2) frozen microarray threshold (sens >= 0.85) 0.63      0.356       0.904      0.35000     0.390       0.900         0.5             0.700  9  1  5  5
+   SEA-AD pseudobulk Logistic (L2)                              threshold 0.5 0.63      0.356       0.904      0.35000     0.500       0.600         0.6             0.600  6  4  6  4
+   SEA-AD pseudobulk Random forest frozen microarray threshold (sens >= 0.85) 0.63      0.371       0.889      0.34000     0.424       0.500         0.5             0.500  5  5  5  5
+   SEA-AD pseudobulk Random forest                              threshold 0.5 0.63      0.371       0.889      0.34000     0.500       0.400         0.7             0.550  4  6  7  3
+
+== Step 4: learning curve (LOO-CV AUC on stratified subsamples) ==
+ fraction   n         model AUC_mean AUC_sd
+      0.2  39 Logistic (L2)    0.799  0.069
+      0.4  78 Logistic (L2)    0.797  0.049
+      0.6 117 Logistic (L2)    0.857  0.025
+      0.8 156 Logistic (L2)    0.854  0.012
+      1.0 195 Logistic (L2)    0.869     NA
+      0.2  39 Random forest    0.802  0.048
+      0.4  78 Random forest    0.779  0.053
+      0.6 117 Random forest    0.835  0.032
+      0.8 156 Random forest    0.843  0.016
+      1.0 195 Random forest    0.864     NA
+
+== Step 5: feature importance (full microarray models) ==
+   gene rf_gini lr_coef rf_rank lr_rank mean_rank lr_coef_pushes_toward marginal_direction_in_AD expected_marker
+    VGF   8.360 -0.7048       1       3       2.0               control                    lower            TRUE
+   GFAP   4.660  0.8993       4       2       3.0                    AD                   higher            TRUE
+   NRGN   4.071 -0.9260       6       1       3.5               control                    lower           FALSE
+    NPY   3.679 -0.3574       7       6       6.5               control                    lower           FALSE
+  NPTX2   4.528 -0.2641       5      11       8.0               control                    lower           FALSE
+  VSNL1   2.949  0.3314      11       8       9.5                    AD                    lower           FALSE
+ SNAP25   8.182 -0.1836       2      21      11.5               control                    lower            TRUE
+   TAC1   2.932  0.2249      12      15      13.5                    AD                    lower           FALSE
+  NLGN1   2.253 -0.3540      20       7      13.5               control                    lower           FALSE
+ CARTPT   3.477 -0.1877       8      20      14.0               control                    lower           FALSE
+   GJA1   2.048 -0.3962      24       5      14.5               control                   higher           FALSE
+   SYT4   2.298  0.2395      18      13      15.5                    AD                    lower           FALSE
+   SYN2   2.272  0.2502      19      12      15.5                    AD                    lower           FALSE
+  SCN1A   2.208  0.2678      21      10      15.5                    AD                   higher           FALSE
+ NECAB1   2.778 -0.2070      15      17      16.0               control                    lower           FALSE
+Expected markers (rank RF / LR): VGF 1/3; GFAP 4/2; SNAP25 2/21; SST 3/31 
+
+Thresholds (from microarray LOO-CV): Logistic (L2) 0.390; Random forest 0.424 
+
+─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.2 (2024-10-31)
+ os       macOS Sequoia 15.7.3
+ system   aarch64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_IN.UTF-8
+ ctype    en_IN.UTF-8
+ tz       Asia/Kolkata
+ date     2026-11-25
+ pandoc   3.6 @ /opt/homebrew/bin/pandoc
+ quarto   NA
+
+─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ package              * version  date (UTC) lib source
+ abind                  1.4-8    2024-09-12 [1] CRAN (R 4.4.1)
+ AnnotationDbi        * 1.68.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ Biobase              * 2.66.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ BiocGenerics         * 0.52.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ BiocParallel           1.40.2   2025-04-08 [1] Bioconductor
+ Biostrings             2.74.1   2024-12-16 [1] Bioconductor 3.20 (R 4.4.2)
+ bit                    4.6.0    2025-03-06 [1] CRAN (R 4.4.1)
+ bit64                  4.8.6    2026-09-01 [1] CRAN (R 4.4.2)
+ blob                   1.3.0    2026-01-14 [1] CRAN (R 4.4.3)
+ cachem                 1.1.0    2024-05-16 [1] CRAN (R 4.4.1)
+ cli                    3.6.6    2026-04-09 [1] CRAN (R 4.4.2)
+ codetools              0.2-20   2024-03-31 [1] CRAN (R 4.4.2)
+ colorspace             2.1-4    2026-10-08 [1] CRAN (R 4.4.2)
+ crayon                 1.5.3    2024-06-20 [1] CRAN (R 4.4.0)
+ DBI                    1.3.0    2026-02-25 [1] CRAN (R 4.4.3)
+ DelayedArray           0.32.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ DESeq2               * 1.46.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ dplyr                  1.2.1    2026-04-03 [1] CRAN (R 4.4.2)
+ farver                 2.1.2    2024-05-13 [1] CRAN (R 4.4.0)
+ fastmap                1.2.0    2024-05-15 [1] CRAN (R 4.4.1)
+ foreach                1.5.2    2022-02-02 [1] CRAN (R 4.4.0)
+ generics               0.1.4    2025-05-09 [1] CRAN (R 4.4.1)
+ GenomeInfoDb         * 1.42.3   2025-01-27 [1] Bioconductor 3.20 (R 4.4.2)
+ GenomeInfoDbData       1.2.13   2025-08-21 [1] Bioconductor
+ GenomicRanges        * 1.58.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ ggplot2              * 4.0.3    2026-04-22 [1] CRAN (R 4.4.2)
+ glmnet               * 4.1-10   2025-07-17 [1] CRAN (R 4.4.1)
+ glue                   1.8.1    2026-04-17 [1] CRAN (R 4.4.2)
+ gtable                 0.3.6    2024-10-25 [1] CRAN (R 4.4.1)
+ httr                   1.4.9    2026-09-01 [1] CRAN (R 4.4.2)
+ illuminaHumanv4.db   * 1.26.0   2026-11-05 [1] Bioconductor
+ IRanges              * 2.40.1   2024-12-05 [1] Bioconductor 3.20 (R 4.4.2)
+ iterators              1.0.14   2022-02-05 [1] CRAN (R 4.4.0)
+ jsonlite               2.0.0    2025-03-27 [1] CRAN (R 4.4.1)
+ KEGGREST               1.46.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ labeling               0.4.3    2023-08-29 [1] CRAN (R 4.4.0)
+ lattice                0.23-1   2026-08-12 [1] CRAN (R 4.4.2)
+ lifecycle              1.0.5    2026-01-08 [1] CRAN (R 4.4.3)
+ locfit                 1.5-9.12 2025-03-05 [1] CRAN (R 4.4.1)
+ magrittr               2.0.5    2026-04-04 [1] CRAN (R 4.4.2)
+ Matrix               * 1.7-5    2026-03-21 [1] CRAN (R 4.4.3)
+ MatrixGenerics       * 1.18.1   2025-01-09 [1] Bioconductor 3.20 (R 4.4.2)
+ matrixStats          * 1.5.0    2025-01-07 [1] CRAN (R 4.4.1)
+ memoise                2.0.1    2021-11-26 [1] CRAN (R 4.4.0)
+ org.Hs.eg.db         * 3.20.0   2026-10-31 [1] Bioconductor
+ otel                   0.2.0    2025-08-29 [1] CRAN (R 4.4.1)
+ patchwork            * 1.3.2    2025-08-25 [1] CRAN (R 4.4.1)
+ pillar                 1.11.1   2025-09-17 [1] CRAN (R 4.4.1)
+ pkgconfig              2.0.3    2019-09-22 [1] CRAN (R 4.4.0)
+ png                    0.1-9    2026-03-15 [1] CRAN (R 4.4.3)
+ pROC                 * 1.19.1   2026-08-27 [1] CRAN (R 4.4.2)
+ R6                     2.6.1    2025-02-15 [1] CRAN (R 4.4.1)
+ ragg                   1.5.1    2026-03-06 [1] CRAN (R 4.4.3)
+ randomForest         * 4.7-1.2  2024-09-22 [1] CRAN (R 4.4.1)
+ RColorBrewer           1.1-3    2022-04-03 [1] CRAN (R 4.4.1)
+ Rcpp                   1.1.2    2026-07-05 [1] CRAN (R 4.4.2)
+ rlang                  1.3.0    2026-07-05 [1] CRAN (R 4.4.2)
+ RSQLite                3.53.3   2026-06-30 [1] CRAN (R 4.4.2)
+ S4Arrays               1.6.0    2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ S4Vectors            * 0.44.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ S7                     0.2.2    2026-04-22 [1] CRAN (R 4.4.2)
+ scales                 1.4.0    2025-04-24 [1] CRAN (R 4.4.1)
+ sessioninfo            1.2.4    2026-06-04 [1] CRAN (R 4.4.2)
+ shape                  1.4.6.1  2024-02-23 [1] CRAN (R 4.4.0)
+ SparseArray            1.6.2    2025-02-20 [1] Bioconductor 3.20 (R 4.4.2)
+ SummarizedExperiment * 1.36.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ survival               3.8-12   2026-09-09 [1] CRAN (R 4.4.2)
+ systemfonts            1.3.2    2026-03-05 [1] CRAN (R 4.4.3)
+ textshaping            1.0.5    2026-03-06 [1] CRAN (R 4.4.3)
+ tibble                 3.3.1    2026-01-11 [1] CRAN (R 4.4.3)
+ tidyselect             1.2.1    2024-03-11 [1] CRAN (R 4.4.0)
+ UCSC.utils             1.2.0    2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ vctrs                  0.7.3    2026-04-11 [1] CRAN (R 4.4.2)
+ withr                  3.0.3    2026-06-19 [1] CRAN (R 4.4.2)
+ XVector                0.46.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ zlibbioc               1.52.0   2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+
+ [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+ * ── Packages attached to the search path.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

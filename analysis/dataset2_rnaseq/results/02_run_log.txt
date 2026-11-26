@@ -1,0 +1,168 @@
+GEO table: 27130 genes x 30 samples
+Fraction of entries that are integers as supplied: 0.183  -> values are normalised, not raw
+Max deviation from integer after rescaling: 2.10e-09
+Implied DESeq size factors (1 / min non-zero):
+ 21-1A.RNA  20-1T.RNA  23-2A.RNA  22-2T.RNA  26-3A.RNA  24-3T.RNA  27-5A.RNA 
+     0.898      0.995      0.995      1.091      1.007      0.899      0.757 
+ 25-5T.RNA  29-6T.RNA  31-7T.RNA  28-8T.RNA  30-9T.RNA 18-10A.RNA 11-10T.RNA 
+     0.930      0.925      0.955      0.894      1.132      1.056      1.064 
+19-11A.RNA 13-11T.RNA 15-13T.RNA 16-14T.RNA  12-6A.RNA  14-7A.RNA  10-8A.RNA 
+     0.900      1.241      1.039      1.121      1.080      0.909      1.104 
+ 17-9A.RNA  2-12A.RNA  4-13A.RNA  6-14A.RNA  8-15A.RNA  9-16A.RNA  3-17T.RNA 
+     1.174      1.413      1.109      1.039      0.928      0.940      0.746 
+ 5-18T.RNA  7-19T.RNA 
+     1.159      1.055 
+Recovered library sizes: 9.5 - 18.8 million reads
+Duplicate gene rows collapsed: 0
+
+================ COLDATA (verify before DESeq2) ================
+     sample        gsm geo_group age condition
+  10-8A.RNA GSM2806222       Old  73   control
+ 11-10T.RNA GSM2806223       Old  63   control
+  12-6A.RNA GSM2806224       Old  62   control
+ 13-11T.RNA GSM2806225       Old  68   control
+  14-7A.RNA GSM2806226       Old  70   control
+ 15-13T.RNA GSM2806227       Old  77   control
+ 16-14T.RNA GSM2806228       Old  61   control
+  17-9A.RNA GSM2806229       Old  68   control
+ 18-10A.RNA GSM2806230       Old  72   control
+ 19-11A.RNA GSM2806231       Old  68   control
+  20-1T.RNA GSM2806232        AD  64        AD
+  21-1A.RNA GSM2806233        AD  63        AD
+  22-2T.RNA GSM2806234        AD  71        AD
+  23-2A.RNA GSM2806235        AD  74        AD
+  24-3T.RNA GSM2806236        AD  78        AD
+  25-5T.RNA GSM2806237        AD  61        AD
+  26-3A.RNA GSM2806238        AD  65        AD
+  27-5A.RNA GSM2806239        AD  70        AD
+  28-8T.RNA GSM2806240        AD  79        AD
+  29-6T.RNA GSM2806241        AD  64        AD
+  30-9T.RNA GSM2806242        AD  64        AD
+  31-7T.RNA GSM2806243        AD  67        AD
+
+control      AD 
+     10      12 
+=================================================================
+
+Genes after low-count filter: 17804
+Genes tested: 17804 | padj NA (independent filtering): 0 | significant: 857 (Up 417 / Down 440)
+
+Top 20 genes by padj:
+    gene log2FC   pvalue     padj direction
+     VGF -2.371 3.77e-16 6.72e-12      Down
+   KLF15  1.175 9.49e-16 8.45e-12        Up
+   RPH3A -1.499 1.45e-15 8.59e-12      Down
+   DUSP6 -0.892 1.49e-13 6.61e-10      Down
+    SGO1  2.412 1.12e-11 3.97e-08        Up
+  DHRS11 -1.046 1.88e-11 5.42e-08      Down
+     CRH -2.341 2.13e-11 5.42e-08      Down
+   RBM48  0.717 2.32e-10 5.17e-07        Up
+ ANAPC16  0.605 4.61e-10 9.12e-07        Up
+    PRKX  1.065 9.29e-10 1.60e-06        Up
+  ABCC12 -1.582 9.91e-10 1.60e-06      Down
+ NEUROD6 -1.614 1.68e-09 2.49e-06      Down
+   PCSK1 -1.745 4.73e-09 6.02e-06      Down
+   NAT16 -1.768 4.83e-09 6.02e-06      Down
+    RAF1  0.331 5.07e-09 6.02e-06        NS
+   GNRH1  1.402 9.11e-09 9.97e-06        Up
+    ACO2 -0.465 1.03e-08 9.97e-06        NS
+ SLC38A2  1.002 1.07e-08 9.97e-06        Up
+   HMGB3 -0.872 1.07e-08 9.97e-06      Down
+ ADCYAP1 -1.849 1.12e-08 9.97e-06      Down
+
+Validation — canonical AD markers:
+     gene   log2FC     padj direction expected sign_ok
+      VGF -2.37124 6.72e-12      Down     Down     yes
+    NPTX2 -0.73879 2.84e-02      Down     Down     yes
+      SST -1.82492 1.09e-03      Down     Down     yes
+     GFAP  0.45092 7.49e-02        NS       Up     yes
+     BDNF -0.82965 5.58e-03      Down     Down     yes
+     CD44  0.00255 9.84e-01        NS       Up     yes
+ SERPINA3 -0.02661 7.40e-01        NS       Up      NO
+
+Saved: results/rnaseq_DEGs.csv, figures/volcano.png, results/02_run_log.txt
+
+─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.2 (2024-10-31)
+ os       macOS Sequoia 15.7.3
+ system   aarch64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_IN.UTF-8
+ ctype    en_IN.UTF-8
+ tz       Asia/Kolkata
+ date     2026-11-26
+ pandoc   3.6 @ /opt/homebrew/bin/pandoc
+ quarto   NA
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package              * version    date (UTC) lib source
+ abind                  1.4-8      2024-09-12 [1] CRAN (R 4.4.1)
+ apeglm               * 1.28.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ bbmle                  1.0.25.1   2023-12-09 [1] CRAN (R 4.4.0)
+ bdsmatrix              1.3-7      2024-03-02 [1] CRAN (R 4.4.1)
+ Biobase              * 2.66.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ BiocGenerics         * 0.52.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ BiocParallel           1.40.2     2025-04-08 [1] Bioconductor
+ cli                    3.6.6      2026-04-09 [1] CRAN (R 4.4.2)
+ coda                   0.19-4.1   2024-01-31 [1] CRAN (R 4.4.1)
+ codetools              0.2-20     2024-03-31 [1] CRAN (R 4.4.2)
+ colorspace             2.1-4      2026-10-08 [1] CRAN (R 4.4.2)
+ crayon                 1.5.3      2024-06-20 [1] CRAN (R 4.4.0)
+ DelayedArray           0.32.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ DESeq2               * 1.46.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ dplyr                  1.2.1      2026-04-03 [1] CRAN (R 4.4.2)
+ emdbook                1.3.14     2025-07-23 [1] CRAN (R 4.4.1)
+ farver                 2.1.2      2024-05-13 [1] CRAN (R 4.4.0)
+ generics               0.1.4      2025-05-09 [1] CRAN (R 4.4.1)
+ GenomeInfoDb         * 1.42.3     2025-01-27 [1] Bioconductor 3.20 (R 4.4.2)
+ GenomeInfoDbData       1.2.13     2025-08-21 [1] Bioconductor
+ GenomicRanges        * 1.58.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ ggplot2              * 4.0.3      2026-04-22 [1] CRAN (R 4.4.2)
+ ggrepel              * 0.9.8      2026-03-17 [1] CRAN (R 4.4.3)
+ glue                   1.8.1      2026-04-17 [1] CRAN (R 4.4.2)
+ gtable                 0.3.6      2024-10-25 [1] CRAN (R 4.4.1)
+ httr                   1.4.9      2026-09-01 [1] CRAN (R 4.4.2)
+ IRanges              * 2.40.1     2024-12-05 [1] Bioconductor 3.20 (R 4.4.2)
+ jsonlite               2.0.0      2025-03-27 [1] CRAN (R 4.4.1)
+ labeling               0.4.3      2023-08-29 [1] CRAN (R 4.4.0)
+ lattice                0.23-1     2026-08-12 [1] CRAN (R 4.4.2)
+ lifecycle              1.0.5      2026-01-08 [1] CRAN (R 4.4.3)
+ locfit                 1.5-9.12   2025-03-05 [1] CRAN (R 4.4.1)
+ magrittr               2.0.5      2026-04-04 [1] CRAN (R 4.4.2)
+ MASS                   7.3-66     2026-07-15 [1] CRAN (R 4.4.2)
+ Matrix                 1.7-5      2026-03-21 [1] CRAN (R 4.4.3)
+ MatrixGenerics       * 1.18.1     2025-01-09 [1] Bioconductor 3.20 (R 4.4.2)
+ matrixStats          * 1.5.0      2025-01-07 [1] CRAN (R 4.4.1)
+ mvtnorm                1.3-6      2026-03-15 [1] CRAN (R 4.4.3)
+ numDeriv               2016.8-1.1 2019-06-06 [1] CRAN (R 4.4.0)
+ pillar                 1.11.1     2025-09-17 [1] CRAN (R 4.4.1)
+ pkgconfig              2.0.3      2019-09-22 [1] CRAN (R 4.4.0)
+ plyr                   1.8.9      2023-10-02 [1] CRAN (R 4.4.0)
+ R6                     2.6.1      2025-02-15 [1] CRAN (R 4.4.1)
+ ragg                   1.5.1      2026-03-06 [1] CRAN (R 4.4.3)
+ RColorBrewer           1.1-3      2022-04-03 [1] CRAN (R 4.4.1)
+ Rcpp                   1.1.2      2026-07-05 [1] CRAN (R 4.4.2)
+ rlang                  1.3.0      2026-07-05 [1] CRAN (R 4.4.2)
+ S4Arrays               1.6.0      2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ S4Vectors            * 0.44.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ S7                     0.2.2      2026-04-22 [1] CRAN (R 4.4.2)
+ scales                 1.4.0      2025-04-24 [1] CRAN (R 4.4.1)
+ sessioninfo            1.2.4      2026-06-04 [1] CRAN (R 4.4.2)
+ SparseArray            1.6.2      2025-02-20 [1] Bioconductor 3.20 (R 4.4.2)
+ SummarizedExperiment * 1.36.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ systemfonts            1.3.2      2026-03-05 [1] CRAN (R 4.4.3)
+ textshaping            1.0.5      2026-03-06 [1] CRAN (R 4.4.3)
+ tibble                 3.3.1      2026-01-11 [1] CRAN (R 4.4.3)
+ tidyselect             1.2.1      2024-03-11 [1] CRAN (R 4.4.0)
+ UCSC.utils             1.2.0      2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ vctrs                  0.7.3      2026-04-11 [1] CRAN (R 4.4.2)
+ withr                  3.0.3      2026-06-19 [1] CRAN (R 4.4.2)
+ XVector                0.46.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+ zlibbioc               1.52.0     2024-11-08 [1] Bioconductor 3.20 (R 4.4.1)
+
+ [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+ * ── Packages attached to the search path.
+
+──────────────────────────────────────────────────────────────────────────────

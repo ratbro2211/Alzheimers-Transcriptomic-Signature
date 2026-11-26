@@ -1,0 +1,4 @@
+"pair","r_all_genes","r_sig_both","n_sig_both","n_same_direction","pct_same_direction"
+"Microarray vs RNA-seq",0.414,0.888,101,100,99
+"Microarray vs SEA-AD",0.289,0.71,73,73,100
+"RNA-seq vs SEA-AD",0.258,0.718,60,56,93.3

@@ -1,0 +1,17 @@
+# --- raw input data (public; see data/README.md) ---
+data/*
+!data/README.md
+!data/download_data.sh
+
+# --- large / regenerable intermediates ---
+*.rds
+*.RData
+network/data/expr_*.csv.gz
+network/data/labels_*.csv
+
+# --- OS / editor / R / Python ---
+.DS_Store
+.Rhistory
+.Rproj.user/
+__pycache__/
+*.pyc
